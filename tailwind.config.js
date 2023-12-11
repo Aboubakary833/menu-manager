@@ -1,5 +1,9 @@
 module.exports = {
-    content: ["node_modules/preline/dist/*.js"],
+    content: [
+        "node_modules/preline/dist/*.js",
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+    ],
     plugins: [require("preline/plugin")],
     theme: {
         colors: {

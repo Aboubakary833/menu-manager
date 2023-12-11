@@ -7,6 +7,7 @@
 	<link rel="shortcut icon" href="{{ asset("favicon.ico") }}" type="image/x-icon">
 	<title>{{ config("app.name") }} | @yield("title")</title>
 	@vite('resources/js/app.js')
+	@vite('resources/css/app.css')
 </head>
 <body>
 	@yield("content")
