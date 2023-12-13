@@ -20,4 +20,4 @@
 
 <{{ $component }} type="{{ $type }}" class="py-3 px-4 bg-{{ $variant }} inline-flex items-center gap-x-2 text-sm font-semibold border border-transparent text-white hover:bg-gray-900 disabled:opacity-50 disabled:pointer-events-none">
 	{{ $slot }}
-  </{{ $component }}>
+</{{ $component }}>
