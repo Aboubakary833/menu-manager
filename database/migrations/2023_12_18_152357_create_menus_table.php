@@ -15,7 +15,7 @@ return new class extends Migration
             $table->ulid("id")->primary();
             $table->string("name");
             $table->enum("type", \App\Enums\MenuType::values());
-            $table->enum("day", array_fill(0, 6))->nullable();
+            $table->enum("day", array_keys(daysNames()))->nullable();
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->ulid("id")->primary();
             $table->foreignUlid("user_id")->references("id")->on("users")->cascadeOnDelete();
-            $table->foreignUlid("place_id")->references("id")->on("place")->cascadeOnDelete();
+            $table->foreignUlid("place_id")->references("id")->on("places")->cascadeOnDelete();
             $table->timestamps();
         });
     }
