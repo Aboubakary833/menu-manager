@@ -7,12 +7,14 @@ module.exports = {
     plugins: [require("preline/plugin")],
     theme: {
         colors: {
-            primary: "#FB9345",
-            secondary: "#FFB534",
+            primary: "#FEBC59",
+            secondary: "#0848A2",
             success: "#67BA79",
             warning: "#F8CC5C",
-            danger: "#F26B4E",
+            danger: "#FD5856",
             info: "#DDDDDD",
+            white: "#FFFFFF",
+            dark: "#3D3D3D"
         },
     },
 };
