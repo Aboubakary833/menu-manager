@@ -2,7 +2,8 @@
 	"variant" => "primary",
 	"bordered" => false,
 	"title" => null,
-	"message"
+	"message",
+	"close" => false
 ])
 
 @php
