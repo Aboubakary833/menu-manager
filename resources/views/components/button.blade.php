@@ -20,7 +20,7 @@
 
 	$sizes = [
 		"sm" => "p-2 text-xs font-regular",
-		"base" => "px-4 py-3 text-sm font-semibold",
+		"base" => "px-4 py-[10px] text-sm font-medium",
 		"lg" => "px-6 py-4 text-base font-semibold"
 	]
 @endphp

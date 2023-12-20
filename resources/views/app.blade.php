@@ -11,7 +11,7 @@
 		'resources/css/app.css',
 	])
 </head>
-<body>
+<body class="dark:bg-dark">
 	@yield("content")
 </body>
 </html>
