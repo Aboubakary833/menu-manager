@@ -6,6 +6,11 @@ module.exports = {
     ],
     plugins: [require("preline/plugin")],
     theme: {
+        extend: {
+            backgroundImage: {
+                "hero-pattern": "url('/assets/images/food.png')"
+            }
+        },
         colors: {
             primary: {
                 DEFAULT: "#febc59",
