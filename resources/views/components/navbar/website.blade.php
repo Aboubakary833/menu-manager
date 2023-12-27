@@ -17,8 +17,7 @@
             <div id="navbar"
                 class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
                 <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
-                    <a class="font-medium text-black focus:text-dark dark:text-white dark:focus:text-info-500"
-                        href="#" aria-current="page">Nous contacter</a>
+                    <x-link href="{{ route('home') }}">Nous contacter</x-link>
 					<x-button component="a" href="{{ route('login') }}" roundedFull>Se connecter</x-button>
                 </div>
             </div>

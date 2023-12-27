@@ -1,7 +1,7 @@
-@extends("layouts.website")
+@extends("layouts.auth")
 @section("title", "Connexion")
 @section("main")
-	<x-card class="w-[300px] sm:w-[400px] md:w-[450px] shadow-md p-0 md:p-0">
+	<x-card class="w-[300px] sm:w-[400px] md:w-[450px] shadow-md" withoutPaddings>
 		<x-card.header>
 			Se connecter
 		</x-card.header>

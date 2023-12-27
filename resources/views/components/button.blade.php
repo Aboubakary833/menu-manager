@@ -5,7 +5,6 @@
 	"href" => "#",
 	"roundedFull" => false,
 	"component" => "button",
-	"class" => "",
 	"disabled" => false
 ])
 
@@ -20,9 +19,9 @@
 ];
 
 	$sizes = [
-		"sm" => "p-2 text-xs font-regular",
-		"base" => "px-4 py-[10px] text-sm font-medium",
-		"lg" => "px-6 py-4 text-base font-semibold"
+		"sm" => "p-2 text-xs",
+		"base" => "px-4 py-[10px] text-sm",
+		"lg" => "px-5 py-3 text-base"
 ];
 
 	$textColor = match ($variant) {
@@ -34,14 +33,15 @@
 <{{ $component }}
 	type="{{ $type }}" 
 	href="{{ $href }}"
-	{{ $attributes->class([
+	{{ $attributes->twMerge([
 		$sizes[$size],
-		"gap-2",
+		"sm" === $size ? "font-regular" : "font-medium",
+		"gap-2",l
 		$variants[$variant],
 		$textColor,
-		"inline-flex items-center gap-x-2 transition-colors hover:brightness-[.93] cursor-pointer disabled:opacity-75 disabled:pointer-events-none",
+		"inline-flex justify-center items-center gap-x-2 transition-colors hover:brightness-[.93] cursor-pointer disabled:opacity-75 disabled:pointer-events-none",
 		$roundedFull ? "rounded-full" : "rounded-lg",
-		$class,
-	]) }} @disabled($disabled)>
+	]) }}
+	@disabled($disabled)>
 	{{ $slot }}
 </{{ $component }}>
