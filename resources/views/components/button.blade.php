@@ -3,6 +3,7 @@
 	"size" => "base",
 	"variant" => "primary",
 	"href" => "#",
+	"widthFull" => false,
 	"roundedFull" => false,
 	"component" => "button",
 	"disabled" => false
@@ -16,16 +17,18 @@
 		"warning" => "bg-warning border border-warning",
 		"danger" => "bg-danger border border-danger",
 		"info" => "bg-info border border-info",
+		"outline" => "bg-transparent border border-gray-200 dark:border-dark-400",
 ];
 
 	$sizes = [
 		"sm" => "p-2 text-xs",
-		"base" => "px-4 py-[10px] text-sm",
-		"lg" => "px-5 py-3 text-base"
+		"base" => "px-4 py-3 text-sm",
+		"lg" => "px-5 py-4 text-base"
 ];
 
 	$textColor = match ($variant) {
 		"warning", "info" => "text-dark",
+		"outline" => "text-dark dark:text-info-100",
 		 default => "text-white"
 	};
 @endphp
@@ -34,9 +37,10 @@
 	type="{{ $type }}" 
 	href="{{ $href }}"
 	{{ $attributes->twMerge([
+		$widthFull ? "w-full" : "",
 		$sizes[$size],
 		"sm" === $size ? "font-regular" : "font-medium",
-		"gap-2",l
+		"gap-2",
 		$variants[$variant],
 		$textColor,
 		"inline-flex justify-center items-center gap-x-2 transition-colors hover:brightness-[.93] cursor-pointer disabled:opacity-75 disabled:pointer-events-none",

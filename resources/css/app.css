@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: "jungle-adventurer";
+		src: url("/resources/fonts/Jungle-Adventurer.ttf.woff") format("woff");
+		font-weight: 900;
+	}
+}
