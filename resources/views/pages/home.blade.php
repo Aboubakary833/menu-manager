@@ -8,8 +8,8 @@
                 Consulter les menus de vos restos favoris en quelques cliques</h1>
         </div>
         <div class="w-11/12 md:w-full mt-10 flex flex-col sm:flex-row justify-center gap-y-4 sm:gap-x-4">
-            <x-button variant="primary" size="lg" component="a" id="create_account" roundedFull>Créer un compte</x-button>
-            <x-button variant="info" size="lg" component="a" roundedFull>Nous contacter</x-button>
+            <x-button variant="primary" size="lg" component="a" id="create_account" roundedFull>Consulter les restos</x-button>
+            <x-button variant="info" size="lg" component="a" href="{{ route('register.index') }}" roundedFull>Créer un compte</x-button>
         </div>
     </div>
 @endsection

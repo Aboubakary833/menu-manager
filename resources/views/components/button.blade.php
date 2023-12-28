@@ -43,6 +43,7 @@
 		"gap-2",
 		$variants[$variant],
 		$textColor,
+		"outline" === $variant ? "hover:bg-dark-500" : "",
 		"inline-flex justify-center items-center gap-x-2 transition-colors hover:brightness-[.93] cursor-pointer disabled:opacity-75 disabled:pointer-events-none",
 		$roundedFull ? "rounded-full" : "rounded-lg",
 	]) }}

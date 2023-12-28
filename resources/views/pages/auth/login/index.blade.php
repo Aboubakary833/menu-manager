@@ -37,7 +37,7 @@
 			</x-form>
 			<div class="inline-flex items-center">
 				<p class="mr-2">Pas encore de compte?</p>
-				<x-link href="#" class="text-primary dark:text-primary">S'inscrire</x-link>
+				<x-link href="{{ route('register.index') }}" class="text-primary dark:text-primary">S'inscrire</x-link>
 			</div>
 		</x-card.body>
     </x-card>
