@@ -31,6 +31,7 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
+            "app/Helpers/auth.php",
             "app/Helpers/days.php"
         ]
     },

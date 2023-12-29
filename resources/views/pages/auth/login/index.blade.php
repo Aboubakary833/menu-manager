@@ -18,16 +18,16 @@
 				<x-separator label="OU" />
 				<div class="my-4 md:my-6">
 					<div class="mb-4 md:mb-6">
-						<x-button variant="outline" href="#" component="a" widthFull>
-							<div class="w-[210px] inline-flex items-center">
+						<x-button variant="outline" href="{{ route('auth.provider.redirect', ['provider' => 'google']) }}" component="a" widthFull>
+							<div class="w-[250px] inline-flex items-center">
 								<x-icon.google />
 								<span class="ml-2">Se connecter via Google</span>
 							</div>
 						</x-button>
 					</div>
 					<div>
-						<x-button variant="outline" href="#" component="a" widthFull>
-							<div class="w-[210px] inline-flex items-center">
+						<x-button variant="outline" href="{{ route('auth.provider.redirect', ['provider' => 'facebook']) }}" component="a" widthFull>
+							<div class="w-[250px] inline-flex items-center">
 								<x-icon.facebook />
 								<span class="ml-2">Se connecter via Facebook</span>
 							</div>

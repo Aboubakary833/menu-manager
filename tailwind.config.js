@@ -96,8 +96,9 @@ module.exports = {
             },
             fontFamily: {
                 "jungleAdventurer": "'jungle-adventurer', sans-serif",
+                "circularFontStd": "'circular-font-std', sans-serif",
             }
         },
-       
+
     },
 };
