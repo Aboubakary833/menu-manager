@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth\Login;
 
 use App\Http\Controllers\Controller;
-use App\Services\Auth\LoginService;
+use App\Services\AuthService;
 use Illuminate\Http\Request;
+use function to_route;
 
 class HandleLoginCallbackController extends Controller
 {
@@ -13,13 +14,18 @@ class HandleLoginCallbackController extends Controller
      */
     public function __invoke(
         Request $request,
-        LoginService $service
+        AuthService $service
         )
     {
         $provider = $request->query("provider");
-        if (!$service->validateProvider($provider))
-            abort(400);
+        $service->validateProvider($provider);
         $user = $service->getUserFromProvider($provider);
-        dd($user);
+
+        if (!$user->getEmail())
+            return back()->with("alert", __("auth.socialite.email_not_found"));
+
+        $service->authenticateOrCreate($user, $provider);
+
+        return to_route("dashboard");
     }
 }

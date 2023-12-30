@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth\Login;
 
 use App\Http\Controllers\Controller;
-use App\Services\Auth\LoginService;
+use App\Services\AuthService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
@@ -15,13 +15,12 @@ class LogByProviderController extends Controller
      */
     public function __invoke(
         Request $request,
-        LoginService $service
+        AuthService $service
         ) : RedirectResponse
     {
         $provider = $request->query("provider");
+        $service->validateProvider($provider);
 
-        if(!$service->validateProvider($provider))
-            abort(400);
         return Socialite::driver($provider)->redirect();
     }
 }

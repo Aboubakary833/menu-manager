@@ -11,6 +11,6 @@ if (!function_exists("getAuthRedirectUrl"))
 	{
 		if (app()->isBooted() && app()->isProduction())
             return config("app.url") . "/auth/callback?provider=" . $provider;
-        return config("app.url") . ':' . $_SERVER["SERVER_PORT"] . "/auth/callback?provider=" . $provider;
+        return config("app.url") . ":8000/auth/callback?provider=" . $provider;
 	}
 }

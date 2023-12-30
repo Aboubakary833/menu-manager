@@ -17,3 +17,9 @@ Route::middleware("guest")->group(function() {
 		Route::get("callback", HandleLoginCallbackController::class)->name("auth.provider.callback");
 	});
 });
+
+Route::middleware(["auth", "verified"])->group(function() {
+    Route::get("dashboard", function() {
+        return "Board";
+    })->name("dashboard");
+});
