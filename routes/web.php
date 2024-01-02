@@ -18,8 +18,14 @@ Route::middleware("guest")->group(function() {
 	});
 });
 
-Route::middleware(["auth", "verified"])->group(function() {
-    Route::get("dashboard", function() {
-        return "Board";
-    })->name("dashboard");
+Route::middleware("auth")->group(function () {
+    Route::get("complete-registration", function () {
+        return "Complete registration";
+    })->name("complete-registration");
+    Route::middleware(["verified", "completed-registration"])->group(function () {
+        Route::get("dashboard", function() {
+            return "Board";
+        })->name("dashboard");
+    });
 });
+

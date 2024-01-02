@@ -10,16 +10,19 @@ use Laravel\Socialite\Facades\Socialite;
 
 class LogByProviderController extends Controller
 {
+    public function __construct(
+        public AuthService $service
+    ) {}
+
     /**
      * Handle the incoming request.
      */
     public function __invoke(
-        Request $request,
-        AuthService $service
+        Request $request
         ) : RedirectResponse
     {
         $provider = $request->query("provider");
-        $service->validateProvider($provider);
+        $this->service->validateProvider($provider);
 
         return Socialite::driver($provider)->redirect();
     }
