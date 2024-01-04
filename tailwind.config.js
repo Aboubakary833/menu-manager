@@ -1,4 +1,6 @@
 module.exports = {
+
+    // darkMode: "class",
     content: [
         "node_modules/preline/dist/*.js",
         "./resources/**/*.blade.php",

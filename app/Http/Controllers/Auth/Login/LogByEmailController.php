@@ -16,6 +16,6 @@ class LogByEmailController extends Controller
      */
     public function __invoke(LoginRequest $request)
     {
-//        $this->service-
+        dd($request);
     }
 }

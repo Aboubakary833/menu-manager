@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use function to_route;
 
-class CompleteRegistration
+class Identified
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,8 @@ class CompleteRegistration
     public function handle(Request $request, Closure $next): Response
     {
         $user = $request->user();
-        if (!$user?->firstname || $user->lastname)
+        if (!$user?->firstname || !$user?->lastname)
             return to_route("complete-registration");
+        return $next($request);
     }
 }

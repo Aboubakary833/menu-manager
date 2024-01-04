@@ -1,3 +1,4 @@
-<form>
-	{{ $slot }}
+<form {{ $attributes }}>
+	@csrf
+    {{ $slot }}
 </form>

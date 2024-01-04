@@ -46,7 +46,7 @@ return [
     'email' => 'Veuillez entrer une adresse email valide.',
     'ends_with' => 'La valeur de ce champ doit se terminer par l\une des valeurs suivantes: ":values".',
     'enum' => 'La valeur sélectionnée est invalide.',
-    'exists' => 'La valeur sélectionnée est invalide.',
+    'exists' => 'Il n\'existe aucun utilisateur avec cette donnée.',
     'file' => 'Ce champ doit prendre un fichier.',
     'filled' => 'Ce champ doit avoir une valeur.',
     'gt' => [
@@ -69,6 +69,7 @@ return [
     'ipv4' => 'La valeur entrée n\'est pas une adresse IPV4 valide.',
     'ipv6' => 'La valeur entrée n\'est pas une adresse IPV6 valide.',
     'json' => 'La valeur entrée n\'est pas un JSON.',
+    'lowercase' => "Toutes les lettres doivent être en minuscule.",
     'lt' => [
         'numeric' => 'La valeur fournie doit être inférieure à :value.',
         'file' => 'La taille du fichier chargé doit être inférieure à :value kilobytes.',

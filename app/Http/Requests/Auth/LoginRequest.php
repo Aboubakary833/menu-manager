@@ -25,4 +25,11 @@ class LoginRequest extends FormRequest
             "email" => "required|lowercase|email|exists:users,email"
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            "email" => __("messages.validation.exists.email"),
+        ];
+    }
 }

@@ -4,11 +4,11 @@
     <x-card class="w-[300px] sm:w-[400px] md:w-[450px] shadow-none border-0 border-transparent" withoutPaddings>
         <x-card.title class="text-3xl font-jungleAdventurer text-center mb-8 xs:text-2xl xs:mb-6">Bienvenue</x-card.title>
 		<x-card.body>
-			<x-form>
+			<x-form method="POST" action="{{ route('login.attempt') }}">
 				<x-form.field
 					label="Adresse email"
 					type="email"
-					name="__user_email"
+					name="email"
 					placeholder="Votre addresse email"
 					labelHidden
 				/>
