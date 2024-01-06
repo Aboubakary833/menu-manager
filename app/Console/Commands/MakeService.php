@@ -22,21 +22,37 @@ class MakeService extends GeneratorCommand
 
     protected $type = 'Service';
 
+    protected function buildClass($name)
+    {
+        $stub = $this->files->get($this->getStub());
+        $stub = $this->replaceNamespace($stub, $name);
+
+        return $this->replaceClass($stub, $name);
+    }
+
     protected function getStub()
     {
         return base_path('stubs/service.stub');
     }
 
-    protected function getDefaultNamespace($rootNamespace)
+    protected function getDefaultNamespace($rootNamespace) : string
     {
         return $rootNamespace . '\Services';
     }
 
-    protected function replaceClass($stub, $name)
+    protected function replaceNamespace(&$stub, $name) : string
+    {
+        return str_replace(
+            $this->getDefaultNamespace("App") . "\\{{namespace_end}}",
+            $this->getNamespace($name),
+            $stub
+        );
+    }
+
+    protected function replaceClass($stub, $name) : string
     {
         $class = str_replace($this->getNamespace($name) . '\\', '', $name);
 
-        // Do string replacement
         return str_replace('{{service_name}}', $class, $stub);
     }
 }

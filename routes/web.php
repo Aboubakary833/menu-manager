@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\Login\{HandleLoginCallbackController, LogByEmailController, LogByProviderController};
 
-
 Route::middleware("guest")->group(function() {
 	Route::view("/", "pages.home")->name("home");
 	Route::view("login", "pages.auth.login.index")->name("login.index");
@@ -16,14 +15,12 @@ Route::middleware("guest")->group(function() {
 	});
 });
 
-Route::middleware("auth")->group(function () {
+Route::middleware(["auth", "verified", "identified"])->group(function () {
     Route::get("complete-registration", function () {
         return "Complete registration";
-    })->name("complete-registration");
-    Route::middleware(["verified", "identified"])->group(function () {
-        Route::get("dashboard", function() {
-            return "Board";
-        })->name("dashboard");
-    });
+    })->withoutMiddleware(["verified", "identified"])->name("complete-registration");
+    Route::get("dashboard", function() {
+        return "Board";
+    })->name("dashboard");
 });
 
