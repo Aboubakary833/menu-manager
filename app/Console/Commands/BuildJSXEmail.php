@@ -4,9 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\Process;
 use SplFileInfo;
-use Symfony\Component\Console\Input\StringInput;
-use Symfony\Component\Console\Output\BufferedOutput;
 
 class BuildJSXEmail extends Command
 {
@@ -78,12 +77,19 @@ class BuildJSXEmail extends Command
 
     public function buildTemplate(string $filename) : void
     {
-        $fullPath = base_path($this->componentsDir . "/" . $filename);
-        $output = new BufferedOutput();
-        $input = new StringInput(
-            sprintf("email build %s", $fullPath)
+        $fullPath = $this->componentsDir . "/" . $filename;
+        $tempDir = sprintf("%s/temp", $this->componentsDir);
+        if (!$this->filesystem->isDirectory($tempDir))
+            $this->filesystem->makeDirectory($tempDir);
+        $output = Process::path(base_path())->run(
+            sprintf(
+                "email build %s --pretty --out=%s",
+                $fullPath,
+                $tempDir
+            )
         );
-        dd($this->execute($input, $output));
-        dd($output);
+        if (!$output->successful())
+
+
     }
 }
