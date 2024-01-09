@@ -31,12 +31,7 @@
 		"outline" => "text-dark dark:text-info-100",
 		 default => "text-white"
 	};
-@endphp
-
-<{{ $component }}
-	type="{{ $type }}"
-	href="{{ $href }}"
-	{{ $attributes->twMerge([
+    $classNames = twMerge([
 		$widthFull ? "w-full" : "",
 		$sizes[$size],
 		"sm" === $size ? "font-regular" : "font-semibold",
@@ -46,7 +41,13 @@
 		"outline" === $variant ? "hover:bg-gray-100/25 dark:hover:bg-dark-500" : "",
 		"inline-flex justify-center items-center gap-x-2 font-circularFontStd transition-colors hover:brightness-[.93] cursor-pointer disabled:opacity-75 disabled:pointer-events-none",
 		$roundedFull ? "rounded-full" : "rounded-lg",
-	]) }}
+	]);
+@endphp
+
+<{{ $component }}
+	type="{{ $type }}"
+	href="{{ $href }}"
+	{{ $attributes->twMerge($classNames) }}
 	@disabled($disabled)>
 	{{ $slot }}
 </{{ $component }}>

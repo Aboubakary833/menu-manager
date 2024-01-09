@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("phone");
             $table->string("website")->nullable();
             $table->double("longitude");
-            $table->double("lattitude");
+            $table->double("latitude");
             $table->timestamps();
         });
     }
