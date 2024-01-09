@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Company extends Model
+class City extends Model
 {
     use HasFactory, HasUlids;
 
-    protected $fillable = ["name", "email", "website"];
+    protected $fillable = ["name"];
 
-    public function type() : BelongsTo
+    public function country() : BelongsTo
     {
-        return $this->belongsTo(Type::class);
+        return $this->belongsTo(Country::class);
     }
 }

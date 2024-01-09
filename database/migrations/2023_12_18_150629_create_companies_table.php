@@ -16,12 +16,7 @@ return new class extends Migration
             $table->foreignUlid("type_id")->references("id")->on("types")->cascadeOnDelete();
             $table->string("name");
             $table->string("email")->nullable();
-            $table->string("country");
-            $table->string("city");
-            $table->string("phone");
             $table->string("website")->nullable();
-            $table->double("longitude");
-            $table->double("latitude");
             $table->timestamps();
         });
     }

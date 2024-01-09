@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
-            $table->ulid("id")->primary();
+        Schema::create('cities', function (Blueprint $table) {
+            $table->id();
+            $table->foreignUlid("country_id")->references("id")->on("countries")->cascadeOnDelete();
             $table->string("name");
-            $table->enum("type", \App\Enums\MenuType::values());
-            $table->tinyInteger("day")->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('cities');
     }
 };

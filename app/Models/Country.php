@@ -5,16 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Company extends Model
+class Country extends Model
 {
     use HasFactory, HasUlids;
 
-    protected $fillable = ["name", "email", "website"];
+    protected $fillable = ["name", "code", "flag"];
 
-    public function type() : BelongsTo
+    public function cities() : HasMany
     {
-        return $this->belongsTo(Type::class);
+        return $this->hasMany(City::class);
     }
+
 }

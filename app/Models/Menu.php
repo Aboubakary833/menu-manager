@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory, HasUlids;
+
+    protected $fillable = ["name", "type", "day"];
+
+
 }
