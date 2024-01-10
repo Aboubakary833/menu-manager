@@ -24,3 +24,7 @@ Route::middleware(["auth", "verified", "identified"])->group(function () {
     })->name("dashboard");
 });
 
+Route::get("/test", function(\App\Services\Location\CountryService $service) {
+    dd($service->getAll());
+});
+

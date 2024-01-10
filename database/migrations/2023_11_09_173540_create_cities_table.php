@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cities', function (Blueprint $table) {
-            $table->id();
+            $table->ulid("id")->primary();
             $table->foreignUlid("country_id")->references("id")->on("countries")->cascadeOnDelete();
             $table->string("name");
             $table->timestamps();

@@ -168,6 +168,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\TelescopeServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -184,5 +185,13 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Countries' => PeterColes\Countries\CountriesFacade::class,
     ])->toArray(),
+
+    /*
+     |
+     |  Application custom configuration
+     |
+     */
+
+    'countries_now_api' => env("COUNTRIES_NOW_API")
 
 ];

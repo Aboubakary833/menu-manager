@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->ulid("id")->primary();
-            $this->string("name");
+            $table->string("name");
             $table->foreignUlid("menu_id")->references("id")->on("menus")->cascadeOnDelete();
             $table->timestamps();
         });

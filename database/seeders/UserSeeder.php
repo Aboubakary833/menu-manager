@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\GenderEnum;
 use App\Enums\RoleEnum;
 use App\Models\Role;
 use App\Models\User;
@@ -16,10 +17,12 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $role = Role::findByName(RoleEnum::getValue("SUPER_ADMIN"));
-        /*User::create([
+        $user = User::create([
             "firstname" => "Aboubakary",
             "lastname" => "Cissé",
-            "gender" =>
-        ]);*/
+            "gender" => GenderEnum::MAN,
+            "email" => "aboubakarycisse410@gmail.com",
+            "phone" => "66292862",
+        ]);
     }
 }

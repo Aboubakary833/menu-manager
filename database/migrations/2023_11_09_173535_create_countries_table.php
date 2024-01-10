@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->ulid("id")->primary();
             $table->string("name");
-            $table->string("code"); // FR or BF
+            $table->string("dial_code"); // indicatif
+            $table->string("iso2_code"); // FR or BF
+            $table->string("currency"); // EUR or FCFA
             $table->string("flag");
             $table->timestamps();
         });
