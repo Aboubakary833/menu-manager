@@ -17,7 +17,7 @@ class CountrySeeder extends Seeder
      */
     public function run(): void
     {
-        $countriesIsoCodes = ["BF", "CI", "ML", "SN"];
+        $countriesIsoCodes = ["BF", "CI"];
         foreach ($countriesIsoCodes as $code)
         {
             $countryData = $this->service->findByIsoCode($code);
@@ -25,8 +25,8 @@ class CountrySeeder extends Seeder
                 "name" => $countryData["name"],
                 "dial_code" => $countryData["dialCode"],
                 "iso2_code" => $countryData["iso2"],
-                "flag" => $countryData["flag"],
-                "currency" => $countryData["currency"],
+                "flag" => $countryData["flag"] ?? "",
+                "currency" => $countryData["currency"] ?? "",
             ]);
         }
     }

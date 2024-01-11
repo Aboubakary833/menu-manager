@@ -4,11 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
-use function dd;
 
-class SetLocale
+class CheckIp
 {
     /**
      * Handle an incoming request.
@@ -17,15 +15,8 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->getPreferredLanguage())
-            app()->setLocale("en");
-
-        if (!Str::startsWith($request->getPreferredLanguage(), "fr"))
-            app()->setLocale("en");
-        else
-            app()->setLocale("fr");
-
-        $request->setLocale(config("app.locale"));
+        if (!$request->ip())
+            return back()->with("alert", __("auth.null_ip"));
         return $next($request);
     }
 }

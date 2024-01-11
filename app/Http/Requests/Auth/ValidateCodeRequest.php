@@ -4,7 +4,7 @@ namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class ValidateCodeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,19 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "email" => "required|lowercase|email|exists:users,email"
+            "__code_pin_1" => "required|integer|digits:1",
+            "__code_pin_2" => "required|integer|digits:1",
+            "__code_pin_3" => "required|integer|digits:1",
+            "__code_pin_4" => "required|integer|digits:1",
+            "__code_pin_5" => "required|integer|digits:1",
         ];
     }
 
-    public function messages(): array
+    public function messages() : array
     {
         return [
-            "email" => __("validation.custom_messages.exists.email"),
+            "required" => __("validation.custom_messages.required"),
+            "digits" => __("validation.custom_messages.digits"),
         ];
     }
 }

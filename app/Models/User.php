@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasPermissions;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @mixin Builder
@@ -18,7 +20,7 @@ use Laravel\Sanctum\HasApiTokens;
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasUlids;
+    use HasApiTokens, HasFactory, Notifiable, HasUlids, HasRoles, HasPermissions;
 
     /**
      * The attributes that are mass assignable.
@@ -62,5 +64,16 @@ class User extends Authenticatable
     public function company() : BelongsTo
     {
         return $this->belongsTo(Company::class);
+    }
+
+    /**
+     * Mark user's phone number as verified.
+     * @return bool
+     */
+    public function markPoneAsVerified() : bool
+    {
+        return $this->forceFill([
+            "phone_verified_at" => $this->freshTimestamp()
+        ])->save();
     }
 }

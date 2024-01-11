@@ -28,4 +28,17 @@ trait HasProviderAuth
     {
         return Socialite::driver($provider)->user();
     }
+
+    public function createUserFromProvider(
+        SocialiteUser $user,
+        string $provider
+    ) : User
+    {
+        return User::create([
+            "email" => $user->getEmail(),
+            "avatar" => $user->getAvatar(),
+            "created_from" => $provider,
+            "email_verified_at" => "google" === $provider ? now() : null,
+        ]);
+    }
 }

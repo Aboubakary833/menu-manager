@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth\Login;
 
 use App\Http\Controllers\Controller;
-use App\Services\AuthService;
+use App\Services\Auth\LoginService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
@@ -11,7 +11,7 @@ use Laravel\Socialite\Facades\Socialite;
 class LogByProviderController extends Controller
 {
     public function __construct(
-        public AuthService $service
+        public LoginService $service
     ) {}
 
     /**

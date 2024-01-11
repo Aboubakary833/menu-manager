@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace App\Services\Auth;
 
+use App\Enums\CodeType;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
+use App\Notifications\SendAuthCode;
+use App\Traits\HasCodeGenerator;
 use App\Traits\HasProviderAuth;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
 
 class LoginService
 {
 
-    use HasProviderAuth;
+    use HasProviderAuth, HasCodeGenerator;
 
     /*
      * Try login user or create new account if user do not exist
@@ -24,14 +27,7 @@ class LoginService
     {
         $user = $this->getExistingUser($socialiteUser);
         if (!$user)
-        {
-            $user = User::create([
-                "email" => $socialiteUser->getEmail(),
-                "avatar" => $socialiteUser->getAvatar(),
-                "created_from" => $provider,
-                "email_verified_at" => "google" === $provider ? now() : null,
-            ]);
-        }
+            $user = $this->createUserFromProvider($socialiteUser, $provider);
 
         auth()->login($user);
 
@@ -40,6 +36,13 @@ class LoginService
 
     public function sendAuthCode(LoginRequest $request) : void
     {
+        $user = $this->getUser($request);
+        $code = $this->createCodeFor($user, $request->ip(), CodeType::AUTH);
+        $user->notify(new SendAuthCode($code));
+    }
 
+    protected function getUser(LoginRequest $request) : User
+    {
+        return User::where("email", $request->email)->first();
     }
 }

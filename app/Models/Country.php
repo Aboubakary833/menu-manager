@@ -11,7 +11,13 @@ class Country extends Model
 {
     use HasFactory, HasUlids;
 
-    protected $fillable = ["name", "code", "flag"];
+    protected $fillable = [
+        "name",
+        "dial_code",
+        "iso2_code",
+        "currency",
+        "flag"
+    ];
 
     public function cities() : HasMany
     {

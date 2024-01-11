@@ -64,7 +64,7 @@ return [
     'image' => 'Le fichier chargé doit être une image.',
     'in' => 'La valeur sélectionnée est invalide.',
     'in_array' => 'La valeur entré ne figure pas dans :other.',
-    'integer' => 'La valeur entrée doit être un entier.',
+    'integer' => 'La valeur à entrée doit être un entier.',
     'ip' => 'La valeur entrée n\'est pas une adresse IP valide.',
     'ipv4' => 'La valeur entrée n\'est pas une adresse IPV4 valide.',
     'ipv6' => 'La valeur entrée n\'est pas une adresse IPV6 valide.',
@@ -160,5 +160,13 @@ return [
     */
 
     'attributes' => [],
+
+    'custom_messages' => [
+        "exists" => [
+            "email" => "Il n'existe aucun utilisateur avec cette adresse email.",
+        ],
+        "digits" => "Vous devez fournir :digits par champs.",
+        "required" => "Tous les champs sont obligatoire.",
+    ]
 
 ];

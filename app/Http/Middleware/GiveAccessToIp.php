@@ -2,13 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Code;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
-use function dd;
 
-class SetLocale
+class GiveAccessToIp
 {
     /**
      * Handle an incoming request.
@@ -17,15 +16,9 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->getPreferredLanguage())
-            app()->setLocale("en");
-
-        if (!Str::startsWith($request->getPreferredLanguage(), "fr"))
-            app()->setLocale("en");
-        else
-            app()->setLocale("fr");
-
-        $request->setLocale(config("app.locale"));
+        $code = Code::where("ip_address", $request->ip())->first();
+        if (!$code)
+            abort(403);
         return $next($request);
     }
 }

@@ -2,21 +2,24 @@
 
 namespace App\Notifications;
 
+use App\Models\Code;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class SendAuthCode extends Notification
+class SendAuthCode extends Notification implements ShouldQueue
 {
     use Queueable;
+
+    protected Code $code;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct(Code $code)
     {
-        //
+        $this->code = $code;
     }
 
     /**
