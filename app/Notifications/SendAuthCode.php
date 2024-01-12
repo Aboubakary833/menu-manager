@@ -12,14 +12,17 @@ class SendAuthCode extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected Code $code;
+    /**
+     * @var string[] $code
+     */
+    protected array $code;
 
     /**
      * Create a new notification instance.
      */
     public function __construct(Code $code)
     {
-        $this->code = $code;
+        $this->code = str_split($code->value);
     }
 
     /**
@@ -38,9 +41,7 @@ class SendAuthCode extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->view("mails.auth.login", ["code" => $this->code]);
     }
 
     /**

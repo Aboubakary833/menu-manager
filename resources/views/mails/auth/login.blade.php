@@ -138,7 +138,7 @@
                       <table align="center" width="100%" class="w-fit mx-auto" border="0" cellpadding="0" cellspacing="0" role="presentation">
                         <tbody>
                           <tr>
-                            <td><img class="w-20 h-20" alt="Menu Manager" src="http://localhost:8000/logo.png" style="border:none;display:block;outline:none;text-decoration:none"></td>
+                            <td><img class="w-20 h-20" alt="Menu Manager" src="{{ $message->embed(public_path("logo.png"))  }}" style="border:none;display:block;outline:none;text-decoration:none"></td>
                           </tr>
                         </tbody>
                       </table>
@@ -159,11 +159,9 @@
                               <table align="center" width="100%" class="w-[200px] h-[45px] text-center font-semibold mx-auto bg-primary-100 rounded-lg" style="font-size:28px" role="presentation" cellspacing="0" cellpadding="0" border="0">
                                 <tbody style="width:100%">
                                   <tr style="width:100%">
-                                    <td>2</td>
-                                    <td>4</td>
-                                    <td>9</td>
-                                    <td>0</td>
-                                    <td>2</td>
+                                      @foreach($code as $digit)
+                                          <td>{{ $digit }}</td>
+                                      @endforeach
                                   </tr>
                                 </tbody>
                               </table>

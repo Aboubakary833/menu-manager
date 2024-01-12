@@ -12,4 +12,5 @@ enum CodeType: int implements EnumContract
     case AUTH = 0;
 
     case VERIFICATION = 1;
+
 }

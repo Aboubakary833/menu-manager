@@ -18,7 +18,7 @@ Route::middleware("guest")->group(function() {
         Route::middleware("ip.check")->group(function () {
 
             Route::post("attempt", LogByEmailController::class)->name("login.attempt");
-            Route::view("validate", "pages.auth.login.validate")->name("login.validate");
+            Route::view("validate", "pages.auth.login.validate")->middleware("ip.accessGiven")->name("login.validate");
 
         });
 

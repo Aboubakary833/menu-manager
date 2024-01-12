@@ -25,7 +25,7 @@ trait HasCodeGenerator
     ) : Code | null {
         $value = $this->generateUniqueCode();
         $code = (new Code())->fill([
-            "type" => $type,
+            "type" => (string) $type->value,
             "value" => $value,
             "ip_address" => $ipAddress
         ]);

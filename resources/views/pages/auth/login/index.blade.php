@@ -6,10 +6,10 @@
 		<x-card.body>
 			<x-form method="POST" action="{{ route('login.attempt') }}">
 				<x-form.field
-					label="{{__("forms.email.label")}}"
+					label="{{__('forms.email.label')}}"
 					type="email"
 					name="email"
-					placeholder="{{__("forms.email.placeholder.targeted")}}"
+					placeholder="{{__('forms.email.placeholder.targeted')}}"
 					labelHidden
 				/>
 				<div class="my-4 sm:my-6">

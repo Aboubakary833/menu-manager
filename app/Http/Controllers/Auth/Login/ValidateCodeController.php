@@ -13,6 +13,8 @@ class ValidateCodeController extends Controller
      */
     public function __invoke(ValidateCodeRequest $request)
     {
-        dd($request);
+        dd(
+            array_keys($request->validated())
+        );
     }
 }
