@@ -17,6 +17,6 @@ class LogByEmailController extends Controller
     public function __invoke(LoginRequest $request)
     {
         $this->service->sendAuthCode($request);
-        return to_route("login.validate");
+        return to_route("login.confirm-view");
     }
 }

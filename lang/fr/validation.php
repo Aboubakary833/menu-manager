@@ -165,8 +165,9 @@ return [
         "exists" => [
             "email" => "Il n'existe aucun utilisateur avec cette adresse email.",
         ],
-        "digits" => "Vous devez fournir :digits par champs.",
+        "digits" => "Vous devez fournir :digits chiffre par champ.",
         "required" => "Tous les champs sont obligatoire.",
+        "integer" => "Vous devez fournir un entier pour chaque champ."
     ]
 
 ];

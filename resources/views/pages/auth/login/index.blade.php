@@ -2,7 +2,7 @@
 @section('title', __("pages.auth.login.index.title"))
 @section('main')
     <x-card class="w-[300px] sm:w-[400px] md:w-[450px] shadow-none border-0 border-transparent" withoutPaddings>
-        <x-card.title class="text-3xl font-jungleAdventurer text-center mb-8 xs:text-2xl xs:mb-6">{{__("pages.auth.login.index.welcome")}}</x-card.title>
+        <x-card.title class="text-3xl font-jungleAdventurer text-center mb-8 xs:text-2xl xs:mb-6">{{__("pages.auth.login.index.card_title")}}</x-card.title>
 		<x-card.body>
 			<x-form method="POST" action="{{ route('login.attempt') }}">
 				<x-form.field

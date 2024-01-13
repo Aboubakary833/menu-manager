@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@preline/pin-input':
+    specifier: ^2.0.2
+    version: 2.0.2
   preline:
     specifier: ^2.0.2
     version: 2.0.2
@@ -882,6 +885,10 @@ packages:
 
   /@popperjs/core@2.11.8:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+    dev: false
+
+  /@preline/pin-input@2.0.2:
+    resolution: {integrity: sha512-HRGKx5QLIxW1UvDyyznIPgQUFDk84lGuYzDj/vChyM48RMa4kVYPYGkcvi3nuy8C5kEsfni918Dj6wfaDUx73Q==}
     dev: false
 
   /@radix-ui/colors@3.0.0:

@@ -23,6 +23,7 @@
         "vite-plugin-require": "^1.1.14"
     },
     "dependencies": {
+        "@preline/pin-input": "^2.0.2",
         "preline": "^2.0.2"
     }
 }
