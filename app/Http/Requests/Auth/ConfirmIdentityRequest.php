@@ -4,12 +4,20 @@ namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class ConfirmIdentityRequest extends FormRequest
 {
     protected array $fieldsNames = [];
     protected string $code = "";
-    public function __construct(array $query = [], array $request = [], array $attributes = [], array $cookies = [], array $files = [], array $server = [], $content = null)
+    public function __construct(
+        array $query = [],
+        array $request = [],
+        array $attributes = [],
+        array $cookies = [],
+        array $files = [],
+        array $server = [],
+        $content = null)
     {
         parent::__construct($query, $request, $attributes, $cookies, $files, $server, $content);
         $this->fieldsNames = codeFieldsNames();
@@ -48,20 +56,27 @@ class ConfirmIdentityRequest extends FormRequest
         ];
     }
 
-    protected function passedValidation()
+    protected function passedValidation(): void
     {
-        $code = implode(",", array_values($this->validated()));
+        $code = implode("", array_values($this->validated()));
         $validator = Validator::make(
-            ["value" => $code],
-            ["value" => "required|exists:codes,value"]
+            ["code" => $code],
+            ["code" => "required|exists:codes,value"],
+            ["exists" => __("validation.custom_messages.exists.code")]
         );
-        if (!$validator->fails())
-        {
-            throw (new $validator->getException())
-                ->errorBag($this->errorBag)
-                ->redirectTo($this->getRedirectUrl());
-        }
+        if ($validator->fails())
+            throw new ValidationException($validator);
         $this->code = $code;
+    }
+
+    /**
+     * Get the code
+     *
+     * @return string
+     */
+    public function getCode() : string
+    {
+        return $this->code;
     }
 
 }

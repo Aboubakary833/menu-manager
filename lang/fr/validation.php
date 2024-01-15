@@ -164,10 +164,11 @@ return [
     'custom_messages' => [
         "exists" => [
             "email" => "Il n'existe aucun utilisateur avec cette adresse email.",
+            "code" => "Le code à cinq chiffres que vous avez entré est invalide."
         ],
         "digits" => "Vous devez fournir :digits chiffre par champ.",
         "required" => "Tous les champs sont obligatoire.",
-        "integer" => "Vous devez fournir un entier pour chaque champ."
+        "integer" => "Vous devez fournir un entier pour chaque champ.",
     ]
 
 ];

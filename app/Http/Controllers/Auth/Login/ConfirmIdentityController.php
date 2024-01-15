@@ -12,8 +12,6 @@ class ConfirmIdentityController extends Controller
      */
     public function __invoke(ConfirmIdentityRequest $request)
     {
-        dd(
-            array_values($request->validated())
-        );
+        dd($request->getCode());
     }
 }
