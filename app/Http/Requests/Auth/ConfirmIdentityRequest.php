@@ -2,13 +2,19 @@
 
 namespace App\Http\Requests\Auth;
 
-use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 
 class ConfirmIdentityRequest extends FormRequest
 {
+    protected array $fieldsNames = [];
+    protected string $code = "";
+    public function __construct(array $query = [], array $request = [], array $attributes = [], array $cookies = [], array $files = [], array $server = [], $content = null)
+    {
+        parent::__construct($query, $request, $attributes, $cookies, $files, $server, $content);
+        $this->fieldsNames = codeFieldsNames();
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -24,13 +30,14 @@ class ConfirmIdentityRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            "__code_pin_1" => "required|integer|digits:1",
-            "__code_pin_2" => "required|integer|digits:1",
-            "__code_pin_3" => "required|integer|digits:1",
-            "__code_pin_4" => "required|integer|digits:1",
-            "__code_pin_5" => "required|integer|digits:1",
-        ];
+        return array_combine(
+            $this->fieldsNames,
+            array_fill(
+                0,
+                count($this->fieldsNames),
+                "required|integer|digits:1"
+            )
+        );
     }
 
     public function messages() : array
@@ -40,4 +47,21 @@ class ConfirmIdentityRequest extends FormRequest
             "digits" => __("validation.custom_messages.digits"),
         ];
     }
+
+    protected function passedValidation()
+    {
+        $code = implode(",", array_values($this->validated()));
+        $validator = Validator::make(
+            ["value" => $code],
+            ["value" => "required|exists:codes,value"]
+        );
+        if (!$validator->fails())
+        {
+            throw (new $validator->getException())
+                ->errorBag($this->errorBag)
+                ->redirectTo($this->getRedirectUrl());
+        }
+        $this->code = $code;
+    }
+
 }

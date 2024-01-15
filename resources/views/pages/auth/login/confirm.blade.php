@@ -1,11 +1,5 @@
 @php
-    $names = [
-        "__0x46i52s54",
-        "__0x53e43o4Ed",
-        "__0x54h49r44",
-        "__0x46o55r54h",
-        "__0x46i46t48",
-    ];
+    $names = codeFieldsNames();
 @endphp
 @extends('layouts.auth')
 @section('title', __("pages.auth.login.validate.title"))
