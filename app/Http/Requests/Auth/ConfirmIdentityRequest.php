@@ -8,20 +8,7 @@ use Illuminate\Validation\ValidationException;
 
 class ConfirmIdentityRequest extends FormRequest
 {
-    protected array $fieldsNames = [];
     protected string $code = "";
-    public function __construct(
-        array $query = [],
-        array $request = [],
-        array $attributes = [],
-        array $cookies = [],
-        array $files = [],
-        array $server = [],
-        $content = null)
-    {
-        parent::__construct($query, $request, $attributes, $cookies, $files, $server, $content);
-        $this->fieldsNames = codeFieldsNames();
-    }
 
     /**
      * Determine if the user is authorized to make this request.
@@ -38,11 +25,18 @@ class ConfirmIdentityRequest extends FormRequest
      */
     public function rules(): array
     {
+        $fieldsNames = [
+            "__0x46i52s54",
+            "__0x53e43o4Ed",
+            "__0x54h49r44",
+            "__0x46o55r54h",
+            "__0x46i46t48",
+        ];
         return array_combine(
-            $this->fieldsNames,
+            $fieldsNames,
             array_fill(
                 0,
-                count($this->fieldsNames),
+                count($fieldsNames),
                 "required|integer|digits:1"
             )
         );
@@ -58,19 +52,29 @@ class ConfirmIdentityRequest extends FormRequest
 
     protected function passedValidation(): void
     {
-        $code = implode("", array_values($this->validated()));
+        $code = implode('', array_values($this->validated()));
+
         $validator = Validator::make(
             ["code" => $code],
-            ["code" => "required|exists:codes,value"],
+            [
+                "code" => [
+                    "exists:codes,value",
+                    function(string $attribute, string $value, \Closure $fails) {
+
+                    }
+                ]
+            ],
             ["exists" => __("validation.custom_messages.exists.code")]
         );
+
         if ($validator->fails())
             throw new ValidationException($validator);
+
         $this->code = $code;
     }
 
     /**
-     * Get the code
+     * Get the verification code
      *
      * @return string
      */

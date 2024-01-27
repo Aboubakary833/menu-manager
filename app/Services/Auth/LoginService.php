@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Services\Auth;
 
 use App\Enums\CodeType;
+use App\Http\Requests\Auth\ConfirmIdentityRequest;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Code;
 use App\Models\User;
 use App\Notifications\SendAuthCode;
 use App\Traits\HasCodeGenerator;
@@ -41,8 +43,16 @@ class LoginService
         $user->notify(new SendAuthCode($code));
     }
 
+    public function authUserWithCode(ConfirmIdentityRequest $request) : void
+    {
+        $code = Code::where("value", $request->getCode())->first();
+        auth()->attempt($code->user);
+        $code->delete();
+    }
+
     protected function getUser(LoginRequest $request) : User
     {
         return User::where("email", $request->email)->first();
     }
+
 }
