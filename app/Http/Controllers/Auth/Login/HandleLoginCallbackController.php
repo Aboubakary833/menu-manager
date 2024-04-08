@@ -19,7 +19,7 @@ class HandleLoginCallbackController extends Controller
     {
         $provider = $request->query("provider");
         $this->service->validateProvider($provider);
-        $user =$this->service->getUserFromProvider($provider);
+        $user = $this->service->getUserFromProvider($provider);
 
         if (!$user->getEmail())
             return back()->with("alert", __("auth.socialite.email_not_found"));

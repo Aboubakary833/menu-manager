@@ -22,7 +22,7 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "email" => "required|lowercase|email|unique:users,email"
         ];
     }
 }
