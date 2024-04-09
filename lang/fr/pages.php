@@ -18,7 +18,7 @@ return [
               "title" => "Vérification identité",
               "card_title" => "Confirmez votre identité",
               "card_description" => "Nous venons de vous envoyez par mail un code à **cinq(5)** chiffres que vous devez fournir dans ces champs pour confirmer votre identité.",
-              "confirm" => "Envoyer la confirmation"
+              "confirm" => "Confirmer"
           ]
       ]
   ]

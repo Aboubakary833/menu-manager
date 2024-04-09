@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 use function dd;
@@ -17,10 +18,12 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->getPreferredLanguage())
+        if (Cookie::get("__locale"))
+            app()->setLocale(Cookie::get("__locale"));
+        else if (!$request->getPreferredLanguage())
             app()->setLocale("en");
 
-        if (!Str::startsWith($request->getPreferredLanguage(), "fr"))
+        else if (!Str::startsWith($request->getPreferredLanguage(), "fr"))
             app()->setLocale("en");
         else
             app()->setLocale("fr");

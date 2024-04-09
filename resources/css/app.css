@@ -4,15 +4,10 @@
 
 @layer base {
 
-    @font-face {
-		font-family: "jungle-adventurer";
-		src: url("/resources/fonts/Jungle-Adventurer.ttf.woff") format("woff");
-		font-weight: 900;
-	}
-
-    @font-face {
-        font-family: "circular-font-std";
-        src: url("/resources/fonts/Circular-Font-Std.ttf") format("ttf");
+    .inter-medium {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-style: normal;
     }
 
     input:-webkit-autofill,
@@ -37,3 +32,4 @@
         }
     }
 }
+

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Settings\SetLocaleController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\Login\{ConfirmIdentityController,
@@ -8,8 +9,8 @@ use App\Http\Controllers\Auth\Login\{ConfirmIdentityController,
     LogByEmailController,
     LogByProviderController};
 
-Route::view("/", "pages.home")->name("home");
-
+Route::view("/", "pages.home")->middleware("identified")->name("home");
+Route::post("/settings/set-locale", SetLocaleController::class)->name("settings.set-locale");
 Route::middleware("guest")->group(function() {
 	Route::view("login", "pages.auth.login.index")->name("login.index");
 	Route::view("register", "pages.auth.register.index")->name("register.index");

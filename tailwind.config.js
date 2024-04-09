@@ -97,9 +97,8 @@ module.exports = {
                 transparent: "rgba(255, 255, 255, 0)"
             },
             fontFamily: {
-                "jungleAdventurer": "'jungle-adventurer', sans-serif",
-                "lato": "'Lato', sans-serif",
-            }
+                "inter": "'Inter', sans-serif",
+            },
         },
 
     },

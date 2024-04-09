@@ -17,7 +17,7 @@ class Identified
     public function handle(Request $request, Closure $next): Response
     {
         $user = $request->user();
-        if (!$user?->firstname || !$user?->lastname)
+        if ($user && (!$user->firstname || !$user->lastname))
             return to_route("complete-registration");
         return $next($request);
     }
