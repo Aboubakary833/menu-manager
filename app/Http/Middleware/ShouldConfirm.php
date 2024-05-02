@@ -2,13 +2,13 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Code;
 use Closure;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class IpHasAccess
+class ShouldConfirm
 {
     /**
      * Handle an incoming request.
@@ -18,8 +18,7 @@ class IpHasAccess
     public function handle(Request $request, Closure $next): Response|RedirectResponse
     {
         $response = $next($request);
-        $code = Code::where("ip_address", $request->ip())->first();
-        if (!$code)
+        if (!Cookie::get("menu_manager__0x46i52s54"))
             abort(403);
 
         return $response;

@@ -13,6 +13,7 @@ use App\Notifications\SendAuthCode;
 use App\Traits\HasCodeGenerator;
 use App\Traits\HasProviderAuth;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
+use Nette\Utils\Random;
 
 class LoginService
 {
@@ -36,11 +37,19 @@ class LoginService
         return $user;
     }
 
-    public function sendAuthCode(LoginRequest $request) : void
+    /**
+     * @param LoginRequest $request
+     * @return string
+     * The temporary token
+     */
+    public function sendAuthCode(LoginRequest $request) : string
     {
         $user = $this->getUser($request);
-        $code = $this->createCodeFor($user, $request->ip(), CodeType::AUTH);
+        $token = Random::generate();
+        $code = $this->createCodeFor($user, $token, CodeType::AUTH);
         $user->notify(new SendAuthCode($code));
+
+        return $token;
     }
 
     public function authUserWithCode(ConfirmIdentityRequest $request) : void

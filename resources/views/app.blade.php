@@ -16,5 +16,7 @@
 </head>
 <body class="dark:bg-dark font-inter">
 	@yield("content")
+
+    @yield("tiny_script")
 </body>
 </html>

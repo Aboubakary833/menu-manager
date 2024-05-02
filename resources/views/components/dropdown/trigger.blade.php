@@ -5,6 +5,6 @@
 	"roundedFull" => false,
 	"disabled" => false
 ])
-<x-button :variant="$variant" :size="$size" :widthFull="$widthFull" :roundedFull="$roundedFull" :disabled="$disabled">
+<x-button :variant="$variant" :size="$size" :widthFull="$widthFull" :roundedFull="$roundedFull" :disabled="$disabled" {{ $attributes }}>
     {{ $slot }}
 </x-button>

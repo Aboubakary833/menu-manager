@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignUlid("user_id")->references("id")->on("users")->cascadeOnDelete();
             $table->enum("type", CodeType::values());
             $table->string("value")->unique();
+            $table->string("token");
             $table->timestamps();
         });
     }

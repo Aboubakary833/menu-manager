@@ -16,7 +16,9 @@ class LogByEmailController extends Controller
      */
     public function __invoke(LoginRequest $request)
     {
-        $this->service->sendAuthCode($request);
-        return to_route("login.confirm-view");
+        $token = $this->service->sendAuthCode($request);
+
+        return to_route("login.confirm-view")
+            ->withCookie(cookie("menu_manager__0x46i52s54", $token, 30));
     }
 }

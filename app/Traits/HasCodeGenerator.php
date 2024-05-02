@@ -20,14 +20,14 @@ trait HasCodeGenerator
 
     public function createCodeFor(
         User $user,
-        string $ipAddress,
+        string $token,
         CodeType $type
     ) : Code | null {
         $value = $this->generateUniqueCode();
         $code = (new Code())->fill([
             "type" => (string) $type->value,
             "value" => $value,
-            "ip_address" => $ipAddress
+            "token" => $token
         ]);
 
         $code->user_id = $user->id;

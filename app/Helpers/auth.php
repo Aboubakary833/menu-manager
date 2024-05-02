@@ -14,4 +14,3 @@ if (!function_exists("getAuthRedirectUrl"))
         return config("app.url") . ":8000/auth/callback?provider=" . $provider;
 	}
 }
-

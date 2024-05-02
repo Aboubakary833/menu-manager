@@ -17,7 +17,7 @@
 
     $classNames = twMerge([
         $sizes[$size],
-        "block text-center border-2 border-gray-200 rounded-md [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none focus:border-primary focus:ring-[2] focus:ring-primary disabled:opacity-50 disabled:pointer-events-none outline-transparent dark:bg-dark dark:border-dark-400 dark:text-info-100 outline-0 outline-transparent transition-colors cursor-dark dark:cursor-info-100"
+        "block text-center border-2 border-gray-200 rounded-md [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none focus:border-primary focus:ring-[2] focus:ring-primary disabled:opacity-50 disabled:pointer-events-none outline-transparent dark:bg-dark dark:border-dark-400 dark:text-info-100 outline-0 outline-transparent transition-colors cursor-dark dark:cursor-info-100 outline-none"
     ])
 
 @endphp

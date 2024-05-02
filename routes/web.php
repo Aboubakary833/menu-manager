@@ -21,12 +21,10 @@ Route::middleware("guest")->group(function() {
 		Route::get("redirect", LogByProviderController::class)->name("auth.provider.redirect");
 		Route::get("callback", HandleLoginCallbackController::class)->name("auth.provider.callback");
 
-        Route::middleware("ip.check")->group(function () {
-            Route::post("attempt", LogByEmailController::class)->name("login.attempt");
-            Route::middleware("ip.hasAccess")->group(function() {
-                Route::view("confirmation", "pages.auth.login.confirm")->name("login.confirm-view");
-                Route::post("confirm", ConfirmIdentityController::class)->name("login.confirm");
-            });
+        Route::post("attempt", LogByEmailController::class)->name("login.attempt");
+        Route::middleware("should.confirm")->group(function() {
+            Route::view("confirmation", "pages.auth.login.confirm")->name("login.confirm-view");
+            Route::post("confirm", ConfirmIdentityController::class)->name("login.confirm");
         });
 
 	});

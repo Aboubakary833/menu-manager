@@ -11,7 +11,7 @@ class Code extends Model
 {
     use HasFactory, HasUlids;
 
-    protected $fillable = ["type", "value", "ip_address"];
+    protected $fillable = ["type", "value", "token"];
 
     public function user() : BelongsTo
     {
