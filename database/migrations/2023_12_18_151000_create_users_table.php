@@ -24,8 +24,7 @@ return new class extends Migration
             $table->timestamp("phone_verified_at")->nullable();
             $table->string("created_from")->nullable();
             $table->string("avatar")->nullable();
-            $table->foreignUlid("country_id")->nullable()->references("id")->on("countries")->cascadeOnDelete();
-            $table->foreignUlid("city_id")->nullable()->references("id")->on("cities")->cascadeOnDelete();
+            $table->string("country_code")->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

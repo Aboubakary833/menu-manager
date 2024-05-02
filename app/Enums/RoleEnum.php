@@ -15,6 +15,6 @@ enum RoleEnum : string implements EnumContract
 
     case ADMIN = "Administrator";
 
-    case client = "Client";
+    case CLIENT = "Client";
 
 }

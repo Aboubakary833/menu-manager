@@ -35,8 +35,7 @@ class User extends Authenticatable
         'phone',
         'created_from',
         'avatar',
-        'country',
-        'city',
+        'country_code',
         'password',
     ];
 
@@ -70,7 +69,7 @@ class User extends Authenticatable
      * Mark user's phone number as verified.
      * @return bool
      */
-    public function markPoneAsVerified() : bool
+    public function markPhoneAsVerified() : bool
     {
         return $this->forceFill([
             "phone_verified_at" => $this->freshTimestamp()

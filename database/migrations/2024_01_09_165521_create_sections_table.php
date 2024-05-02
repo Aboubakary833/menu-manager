@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('locations', function (Blueprint $table) {
+        Schema::create('sections', function (Blueprint $table) {
             $table->ulid("id")->primary();
             $table->foreignUlid("company_id")->references("id")->on("companies")->cascadeOnDelete();
-            $table->foreignUlid("city_id")->references("id")->on("cities")->cascadeOnDelete();
+            $table->string("country_code"); // Country iso code
+            $table->string("city");
             $table->string("phone");
             $table->string("address");
-            $table->string("longitude");
             $table->string("latitude");
+            $table->string("longitude");
             $table->boolean("is_headquarter")->default(false);
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('locations');
+        Schema::dropIfExists('sections');
     }
 };
