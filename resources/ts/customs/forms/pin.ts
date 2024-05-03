@@ -1,0 +1,19 @@
+import HSPinInput, {ICollectionItem} from "@preline/pin-input";
+
+type PinInput = HSPinInput & ICollectionItem<HSPinInput>;
+
+window.addEventListener("load", function () {
+    const pinInputs = this["$hsPinInputCollection"] as PinInput[];
+
+    pinInputs.forEach((pinInput) => {
+        const element = pinInput.element;
+        const container = element.el;
+        const maskInput = container.querySelector("input[data-hs-pin-mask-input]") as HTMLElement | null;
+        if (maskInput) {
+            element.on("completed", ({currentValue}) => {
+                const value = currentValue.join("");
+                maskInput.setAttribute("value", value);
+            })
+        }
+    });
+});

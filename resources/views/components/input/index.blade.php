@@ -28,4 +28,5 @@
     type="{{ $type }}"
     name="{{ $name }}"
     {{ $attributes->twMerge($classNames) }}
-    placeholder="{{ $placeholder }}" />
+    placeholder="{{ $placeholder }}"
+/>

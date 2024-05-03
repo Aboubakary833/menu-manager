@@ -9,7 +9,7 @@
         </x-card.subtitle>
         <x-card.body>
             <x-form method="POST" action="{{ route('login.confirm') }}">
-                <x-form.field.code id="__pins_block" class="my-4 sm:my-6" regex="^[0-9]$" />
+                <x-form.field.code id="__pins_block" name="__confirm_code" class="my-4 sm:my-6" regex="^[0-9]+$" />
                 <div class="mt-8 sm:mt-12">
                     <x-button type="submit" widthFull roundedFull>{{__("pages.auth.login.validate.confirm")}}</x-button>
                 </div>
@@ -18,4 +18,3 @@
     </x-card>
 
 @endsection
-

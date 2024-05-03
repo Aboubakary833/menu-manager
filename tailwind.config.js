@@ -2,9 +2,10 @@ module.exports = {
 
     //darkMode: "class",
     content: [
-        "node_modules/preline/dist/*.ts",
+        "node_modules/preline/dist/*.js",
         "./resources/**/*.blade.php",
         "./resources/**/*.ts",
+        "./resources/**/*.js"
     ],
     plugins: [require("preline/plugin")],
     theme: {
