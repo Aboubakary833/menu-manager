@@ -23,14 +23,15 @@ class ConfirmIdentityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "__confirm_code" => "required|size:5"
+            "__confirm_code" => "required|size:5|exists:codes,value"
         ];
     }
 
     public function messages() : array
     {
         return [
-
+            "exists" => __("validation.custom_messages.exists.code.invalid"),
+            "size" => __("validation.custom_messages.exists.code.size", ["size" => 5])
         ];
     }
 

@@ -43,4 +43,7 @@
             @endfor
         </div>
     </div>
+    @error($name)
+        <p class="text-sm text-danger text-center mt-2">{{ $message }}</p>
+    @enderror
 </div>

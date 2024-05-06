@@ -163,9 +163,13 @@ return [
     |
     */
 
-    'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+    'custom_messages' => [
+        "exists" => [
+            "email" => "There is no user with this email address.",
+            "code" => [
+                "invalid" => "Your code of five digits is invalid.",
+                "size" => "Your code size must be :size digits."
+            ]
         ],
     ],
 
@@ -180,6 +184,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+    ],
 
 ];

@@ -3,11 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use function to_route;
 
-class Identified
+class Unverified
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,9 @@ class Identified
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = $request->user();
-        if ($user && (!$user->firstname || !$user->lastname))
-            return to_route("complete-registration");
+        if ($request->user()->hasVerifiedEmail() || !($request->user() instanceof MustVerifyEmail))
+            return to_route("home");
+
         return $next($request);
     }
 }

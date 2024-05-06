@@ -20,6 +20,21 @@ return [
                 "card_description" => "We just sent you a **five(5)** digits code you should provide in these fields below in order to log in.",
                 "confirm" => "Confirm"
             ]
+        ],
+        "register" => [
+            "index" => [
+                "title" => "Sign up",
+                "card_title" => "Create a new account",
+                "submit" => "Continue the registration",
+                "login" => "Login",
+            ],
+            "verify" => [
+                "title" => "Verify your email address",
+                "heading" => "Verify your email address",
+                "description" => "We have sent you an email to :email to confirm the validity of your email address. After receiving the email, follow the link provided to confirm your registration.",
+                "notReceiveYet" => "Not receive an email yet?",
+                "resend" => "Resend the mail"
+            ]
         ]
     ]
 ];

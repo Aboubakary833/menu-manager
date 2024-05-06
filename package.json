@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "@preline/pin-input": "^2.1.0",
+        "@preline/remove-element": "^2.1.0",
         "preline": "^2.1.0"
     }
 }

@@ -46,7 +46,7 @@ return [
     'email' => 'Veuillez entrer une adresse email valide.',
     'ends_with' => 'La valeur de ce champ doit se terminer par l\une des valeurs suivantes: ":values".',
     'enum' => 'La valeur sélectionnée est invalide.',
-    'exists' => 'Il n\'existe aucun utilisateur avec cette donnée.',
+    'exists' => 'La valeur fournie est invalide.',
     'file' => 'Ce champ doit prendre un fichier.',
     'filled' => 'Ce champ doit avoir une valeur.',
     'gt' => [
@@ -164,11 +164,11 @@ return [
     'custom_messages' => [
         "exists" => [
             "email" => "Il n'existe aucun utilisateur avec cette adresse email.",
-            "code" => "Le code à cinq chiffres que vous avez entré est invalide."
+            "code" => [
+                "invalid" => "Le code à cinq chiffres que vous avez entré est invalide.",
+                "size" => "Votre code doit être long de :size chiffres."
+            ]
         ],
-        "digits" => "Vous devez fournir :digits chiffre par champ.",
-        "required" => "Tous les champs sont obligatoire.",
-        "integer" => "Vous devez fournir un entier pour chaque champ.",
     ]
 
 ];

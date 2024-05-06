@@ -2,13 +2,14 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Code;
 use Closure;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class ShouldConfirm
+class CanConfirm
 {
     /**
      * Handle an incoming request.
@@ -18,7 +19,10 @@ class ShouldConfirm
     public function handle(Request $request, Closure $next): Response|RedirectResponse
     {
         $response = $next($request);
-        if (!Cookie::get("menu_manager__0x46i52s54"))
+        $cookie = Cookie::get("menu_manager__0x46i52s54");
+        $query = Code::query();
+
+        if (!$cookie && !$query->where("token", $cookie)->first())
             abort(403);
 
         return $response;

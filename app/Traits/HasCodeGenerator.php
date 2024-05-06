@@ -23,6 +23,9 @@ trait HasCodeGenerator
         string $token,
         CodeType $type
     ) : Code | null {
+        if ($user->code)
+            $user->code->delete();
+
         $value = $this->generateUniqueCode();
         $code = (new Code())->fill([
             "type" => (string) $type->value,

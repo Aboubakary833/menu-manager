@@ -54,7 +54,7 @@ class LoginService
 
     public function authUserWithCode(ConfirmIdentityRequest $request) : void
     {
-        $code = Code::where("value", $request->getCode())->first();
+        $code = Code::where("value", $request->input("__confirm_code"))->first();
         auth()->login($code->user);
         $code->delete();
     }

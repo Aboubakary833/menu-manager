@@ -8,6 +8,9 @@ dependencies:
   '@preline/pin-input':
     specifier: ^2.1.0
     version: 2.1.0
+  '@preline/remove-element':
+    specifier: ^2.1.0
+    version: 2.1.0
   preline:
     specifier: ^2.1.0
     version: 2.1.0
@@ -914,6 +917,10 @@ packages:
 
   /@preline/pin-input@2.1.0:
     resolution: {integrity: sha512-VJs21TMPSC1GplgXQqNznnWmun1s0WhrpRMpndb1F+8gTduWiBTpdFqeJbxwrKnNnVV+ABj7B1inQvCQyGwYqQ==}
+    dev: false
+
+  /@preline/remove-element@2.1.0:
+    resolution: {integrity: sha512-wbjY/EAsQzCal1CVYfEkT4aOPkzeAZOmFtBH6d3Vzuu0Hp9vsdmwcow5VkH12xjM0r7oVLYAE3Nado2hGM7jJw==}
     dev: false
 
   /@radix-ui/colors@3.0.0:

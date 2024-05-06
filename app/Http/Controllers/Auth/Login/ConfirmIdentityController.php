@@ -17,6 +17,6 @@ class ConfirmIdentityController extends Controller
     public function __invoke(ConfirmIdentityRequest $request)
     {
         $this->service->authUserWithCode($request);
-        return to_route("dashboard");
+        return to_route("home");
     }
 }

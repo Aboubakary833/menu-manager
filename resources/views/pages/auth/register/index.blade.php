@@ -1,44 +1,44 @@
 @extends('layouts.auth')
-@section('title', 'Connexion')
+@section('title', "pages.auth.register.index.title")
 @section('main')
     <x-card class="w-[300px] sm:w-[400px] md:w-[450px] shadow-none border-0 border-transparent" withoutPaddings>
-        <x-card.title class="text-3xl font-jungleAdventurer text-center mb-8 xs:text-2xl xs:mb-6">Créer un compte</x-card.title>
+        <x-card.title class="text-3xl font-jungleAdventurer text-center mb-8 xs:text-2xl xs:mb-6">{{__("pages.auth.register.index.card_title")}}</x-card.title>
 		<x-card.body>
 			<x-form>
-				<x-form.field
-					label="Adresse email"
-					type="email"
-					name="__user_email"
-					placeholder="Votre addresse email"
-					labelHidden
-				/>
+                <x-form.field
+                    label="{{__('forms.email.label')}}"
+                    type="email"
+                    name="email"
+                    placeholder="{{__('forms.email.placeholder.targeted')}}"
+                    labelHidden
+                />
 				<div class="my-4 sm:my-6">
-					<x-button type="submit" widthFull roundedFull>Poursuivre l'inscription</x-button>
+					<x-button type="submit" widthFull roundedFull>{{__("pages.auth.register.index.submit")}}</x-button>
 				</div>
 				<x-separator label="OU" />
-				<div class="my-4 md:my-6">
-					<div class="mb-4 md:mb-6">
-						<x-button variant="outline" href="#" component="a" widthFull>
-							<div class="w-[210px] inline-flex items-center">
-								<x-icon.google />
-								<span class="ml-2">S'inscrire via Google</span>
-							</div>
-						</x-button>
-					</div>
-					<div>
-						<x-button variant="outline" href="#" component="a" widthFull>
-							<div class="w-[210px] inline-flex items-center">
-								<x-icon.facebook />
-								<span class="ml-2">S'inscrire via Facebook</span>
-							</div>
-						</x-button>
-					</div>
-				</div>
+                <div class="my-4 md:my-6">
+                    <div class="mb-4 md:mb-6">
+                        <x-button variant="outline" href="{{ route('auth.provider.redirect', ['provider' => 'google']) }}" component="a" widthFull>
+                            <div class="w-[250px] inline-flex items-center">
+                                <x-icon.google />
+                                <span class="ml-2">{{__("pages.auth.shared.continue_with_google")}}</span>
+                            </div>
+                        </x-button>
+                    </div>
+                    <div>
+                        <x-button variant="outline" href="{{ route('auth.provider.redirect', ['provider' => 'facebook']) }}" component="a" widthFull>
+                            <div class="w-[250px] inline-flex items-center">
+                                <x-icon.facebook />
+                                <span class="ml-2">{{__("pages.auth.shared.continue_with_facebook")}}</span>
+                            </div>
+                        </x-button>
+                    </div>
+                </div>
 			</x-form>
-			<div class="inline-flex items-center">
-				<p class="mr-2">Vous avez déjà un compte?</p>
-				<x-link href="{{ route('login.index') }}" class="text-primary dark:text-primary">Se connecter</x-link>
-			</div>
+            <div class="inline-flex items-center">
+                <p class="mr-2">{{__("pages.auth.login.index.not_registered_yet")}}</p>
+                <x-link href="{{ route('register.index') }}" class="text-primary dark:text-primary">{{__("pages.auth.register.index.login")}}</x-link>
+            </div>
 		</x-card.body>
     </x-card>
 @endsection

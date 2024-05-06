@@ -14,3 +14,12 @@ if (!function_exists("getAuthRedirectUrl"))
         return config("app.url") . ":8000/auth/callback?provider=" . $provider;
 	}
 }
+
+if (!function_exists("user"))
+{
+
+    function user() : ?Illuminate\Contracts\Auth\Authenticatable
+    {
+        return auth()->user();
+    }
+}
