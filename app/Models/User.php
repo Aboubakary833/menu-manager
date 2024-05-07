@@ -72,6 +72,11 @@ class User extends Authenticatable
         return $this->hasOne(Code::class);
     }
 
+    public function settings() : HasMany
+    {
+        return $this->hasMany(Setting::class);
+    }
+
     /**
      * Mark user's phone number as verified.
      * @return bool

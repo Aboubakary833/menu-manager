@@ -21,4 +21,5 @@ return [
     'socialite' => [
         "incorrect_provider_name" => "There is an issue with the provider name. Please retry",
     ],
+    'verificationSent' => "A new verification email has been sent to you."
 ];

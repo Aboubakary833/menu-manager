@@ -169,15 +169,6 @@
                           </tr>
                         </tbody>
                       </table>
-                      <table align="center" width="100%" class="mb-5 w-10/12 mx-auto p-2" border="0" cellpadding="0" cellspacing="0" role="presentation">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <p style="font-size:14px;line-height:24px;margin:16px 0">Si vous n'êtes pas auteur de cette requête, veuillez cliquer sur ce <a style="color:#067df7;text-decoration:none">lien</a> pour bloquer l'appareil de l'auteur.</p>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
                       <hr style="border:none;border-top:1px solid #eaeaea;width:100%">
                       <table align="center" width="100%" class="w-[200px] mx-auto" border="0" cellpadding="0" cellspacing="0" role="presentation">
                         <tbody>

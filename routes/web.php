@@ -27,7 +27,7 @@ Route::middleware("guest")->group(function() {
             Route::post("confirm", ConfirmIdentityController::class)->name("login.confirm");
         });
 
-        Route::middleware([])->group(function() {
+        Route::middleware(["auth", "unverified"])->group(function() {
             Route::view("verify", "pages.auth.register.verify")->name("verification.notice");
             Route::post("resend-verification", ReSendVerificationController::class)->name("verification.resend");
         });

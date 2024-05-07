@@ -3,8 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Filesystem\Filesystem;
 
-class MakeJSXEMail extends GeneratorCommand
+class MakeJSXEmail extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
@@ -24,10 +25,29 @@ class MakeJSXEMail extends GeneratorCommand
 
     protected $componentsDir = "resources/ts/emails/templates";
 
+    public function __construct(
+        protected Filesystem $filesystem,
+    )
+    {
+        parent::__construct($this->filesystem);
+        if (!$this->filesystem->exists($this->componentsDir))
+        {
+            $this->filesystem->makeDirectory($this->componentsDir);
+        }
+    }
+
     public function handle()
     {
-        $name = $this->getNameInput();
-        $path = $this->componentsDir . '/' . $name . '.tsx';
+        $input = $this->getNameInput();
+        $pathsToFile = explode('/', $input);
+        $name = array_pop($pathsToFile);
+        $dir = count($pathsToFile) ? sprintf(
+            "%s/%s",
+            $this->componentsDir, implode("/", $pathsToFile)
+        ) : $this->componentsDir;
+        if (!$this->filesystem->exists($dir))
+            $this->filesystem->makeDirectory($dir);
+        $path = $dir . '/' . $name . '.tsx';
         $content = $this->buildClass($name);
         $this->files->put(
             $path,
@@ -56,6 +76,5 @@ class MakeJSXEMail extends GeneratorCommand
     {
         return base_path("stubs/jsxemail.stub");
     }
-
 
 }

@@ -37,7 +37,8 @@
         "files": [
             "app/Helpers/auth.php",
             "app/Helpers/days.php",
-            "app/Helpers/markdown.php"
+            "app/Helpers/markdown.php",
+            "app/Helpers/settings.php"
         ]
     },
     "autoload-dev": {
