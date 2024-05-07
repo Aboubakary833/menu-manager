@@ -21,5 +21,8 @@ return [
     'socialite' => [
         "incorrect_provider_name" => "Il y'a un souci avec le nom du service d'authentification.",
     ],
-    'verificationSent' => "Un nouveau mail de vérification vous a été envoyé."
+    'verificationSent' => "Un nouveau mail de vérification vous a été envoyé.",
+    'registration' => [
+        'failed' => "Il y'a eu une erreur lors de l'inscription. Veuillez reéssayer."
+    ]
 ];

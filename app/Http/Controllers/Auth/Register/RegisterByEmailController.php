@@ -13,6 +13,7 @@ class RegisterByEmailController extends Controller
     ) {}
     public function __invoke(RegisterRequest $request)
     {
-
+        $this->service->createAccountWithOnlyEmail($request);
+        return to_route("verification.notice");
     }
 }

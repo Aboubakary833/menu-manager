@@ -8,5 +8,13 @@ return [
             "targeted" => "Enter your email address",
             "withExample" => "ex: exemple@gmail.com",
         ]
+    ],
+    "firstname" => [
+        "label" => "Firstname",
+        "placeholder" => "Enter your firstname"
+    ],
+    "lastname" => [
+        "label" => "Lastname",
+        "placeholder" => "Enter your lastname"
     ]
 ];

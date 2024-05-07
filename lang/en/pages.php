@@ -34,6 +34,11 @@ return [
                 "description" => "We have sent you an email to :email to confirm the validity of your email address. After receiving the email, follow the link provided to confirm your registration.",
                 "notReceiveYet" => "Not receive an email yet?",
                 "resend" => "Resend the mail"
+            ],
+            "complete" => [
+                "title" => "Complete registration",
+                "card_title" => "Complete registration",
+                "submit" => "Submit"
             ]
         ]
     ]

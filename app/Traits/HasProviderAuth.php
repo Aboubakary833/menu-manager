@@ -38,7 +38,7 @@ trait HasProviderAuth
             "email" => $user->getEmail(),
             "avatar" => $user->getAvatar(),
             "created_from" => $provider,
-            "email_verified_at" => "google" === $provider ? now() : null,
+            "email_verified_at" => $user->getEmail() ? now() : null,
         ]);
     }
 }

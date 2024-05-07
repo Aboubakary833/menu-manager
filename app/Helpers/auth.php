@@ -17,7 +17,6 @@ if (!function_exists("getAuthRedirectUrl"))
 
 if (!function_exists("user"))
 {
-
     function user() : ?Illuminate\Contracts\Auth\Authenticatable
     {
         return auth()->user();

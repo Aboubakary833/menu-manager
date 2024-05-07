@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Login;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Services\Auth\LoginService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class HandleLoginCallbackController extends Controller
+class HandleCallbackController extends Controller
 {
     public function __construct(public LoginService $service) {}
     /**
@@ -21,11 +21,8 @@ class HandleLoginCallbackController extends Controller
         $this->service->validateProvider($provider);
         $user = $this->service->getUserFromProvider($provider);
 
-        if (!$user->getEmail())
-            return back()->with("alert", __("auth.socialite.email_not_found"));
-
         $this->service->authenticateWithProvider($user, $provider);
 
-        return to_route("dashboard");
+        return to_route("home");
     }
 }

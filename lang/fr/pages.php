@@ -34,6 +34,11 @@ return [
               "description" => "Nous vous avons envoyé un mail à l'adresse :email pour que vous confirmez la validité de votre adresse email. Après avoir reçu le lien, cliquez sur le lien y fourni pour complété valider votre inscription.",
               "notReceiveYet" => "Vous n'avez pas encore reçu de mail?",
               "resend" => "Renvoyer le mail"
+          ],
+          "complete" => [
+              "title" => "Terminez votre inscription",
+              "card_title" => "Compléter votre inscription",
+              "submit" => "Soumettre"
           ]
       ]
   ]
