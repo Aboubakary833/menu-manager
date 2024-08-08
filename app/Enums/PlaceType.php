@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
+use App\Contracts\EnumContract;
 use App\Traits\HasEnumUtils;
 
-enum PlaceType : int implements EnumContract {
+enum PlaceType : int implements EnumContract
+{
 
 	use HasEnumUtils;
 
