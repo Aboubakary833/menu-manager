@@ -1,9 +1,11 @@
 @extends('layouts.auth')
 @section('title', __('pages.auth.register.title'))
+@section('description', __('pages.auth.register.description'))
 @section('main')
     <x-card class="shadow-none border-0 border-transparent" withoutPaddings>
         <x-card.header class="my-4" noBorder>
             <x-card.title class="text-3xl font-jungleAdventurer text-center mb-8 xs:text-2xl xs:mb-6">{{__("pages.auth.register.card_title")}}</x-card.title>
+            <x-card.subtitle>{{ __('pages.auth.register.card_subtitle') }}</x-card>
         </x-card.header>
 		<x-card.body>
 			<x-form>
@@ -33,4 +35,7 @@
             </div>
 		</x-card.body>
     </x-card>
+
+    @include('partials.status-toast')
+
 @endsection

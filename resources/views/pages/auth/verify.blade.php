@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-@section('title', "pages.auth.register.verify.title")
+@section('title', "pages.auth.verify.title")
 @section('main')
 
     <div class="w-[300px] sm:w-[400px] md:w-[450px]">
@@ -25,16 +25,16 @@
                     class="font-medium text-center text-xl"
                     style="margin-top: 1.5rem;"
                 >
-                    {{ __("pages.auth.register.verify.heading") }}
+                    {{ __("pages.auth.verify.heading") }}
                 </x-card.title>
             </x-card.header>
             <x-card.body class="text-slate-600 dark:text-info-100 text-[15px]">
                 <p>
-                    {{ __("pages.auth.register.verify.description", ["email" => user()->email]) }}
+                    {{ __("pages.auth.verify.description", ["email" => user()->email]) }}
                 </p>
                 <div class="my-4">
                     <p class="mt-2">
-                        {{ __("pages.auth.register.verify.notReceiveYet") }}
+                        {{ __("pages.auth.verify.notReceiveYet") }}
                     </p>
                 </div>
                 <div>
@@ -43,26 +43,13 @@
                         action="{{ route('verification.resend') }}"
                         class="text-center"
                     >
-                        <x-button type="submit" widthFull roundedFull>{{ __("pages.auth.register.verify.resend") }}</x-button>
+                        <x-button type="submit" widthFull roundedFull>{{ __("pages.auth.verify.resend") }}</x-button>
                     </x-form>
                 </div>
             </x-card.body>
         </x-card>
     </div>
 
-    @error("message")
-    <x-toast>
-        <div class="flex">
-            <div class="flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fill-danger stroke-white"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
-            </div>
-            <div class="ms-3">
-                <p class="mt-0.5 text-sm font-medium text-gray-700">
-                    {{ $message }}
-                </p>
-            </div>
-        </div>
-    </x-toast>
-    @enderror
+	@include('partials.status-toast')
 
 @endsection

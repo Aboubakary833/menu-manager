@@ -2,10 +2,16 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Traits\HasNotRateLimiting;
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
 {
+    use HasNotRateLimiting;
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -17,19 +23,32 @@ class LoginRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
         return [
-            "email" => "required|lowercase|email|exists:users,email"
+            'email' => 'bail|required|string|email',
+            'password' => 'bail|required|string'
         ];
     }
 
-    public function messages(): array
+    /**
+     * @return void
+     * @throws ValidationException
+     */
+    public function authenticate() : void
     {
-        return [
-            "email" => __("validation.custom_messages.exists.email"),
-        ];
+        $this->ensureIsNotRateLimited();
+        $credentials = $this->only(['email', 'password']);
+
+        if (!auth()->attempt($credentials))
+        {
+            RateLimiter::hit($this->throttleKey());
+            $this->session()->put('error', __('auth.failed'));
+            throw (new ValidationException($this->validator));
+        }
+
+        RateLimiter::clear($this->throttleKey());
     }
 }

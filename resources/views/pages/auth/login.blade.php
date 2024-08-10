@@ -1,5 +1,6 @@
 @extends('layouts.auth')
-@section('title', __("pages.auth.login.title"))
+@section('title', __('pages.auth.login.title'))
+@section('description', __('pages.auth.login.description'))
 @section('main')
     <x-card class="shadow-none border-0 border-transparent" withoutPaddings>
         <x-card.header class="my-4" noBorder>
@@ -20,6 +21,9 @@
 					name="password"
 					placeholder="{{ __('forms.password.placeholder') }}"
 				/>
+				<div class="my-2">
+					<x-link href="{{ route('password.forgot') }}" class="text-primary dark:text-primary">{{ __('pages.auth.login.forgot_password') }}</x-link>
+				</div>
 				<div class="my-4 sm:my-6">
 					<x-button type="submit" widthFull roundedFull>{{__('pages.auth.login.submit')}}</x-button>
 				</div>
@@ -34,9 +38,12 @@
 				</div>
 			</x-form>
 			<div class="inline-flex items-center">
-				<p class="mr-2">{{__("pages.auth.login.not_registered_yet")}}</p>
+				<p class="mr-2 font-medium">{{__("pages.auth.login.not_registered_yet")}}</p>
 				<x-link href="{{ route('register.view') }}" class="text-primary dark:text-primary">{{__("pages.auth.login.register")}}</x-link>
 			</div>
 		</x-card.body>
     </x-card>
+
+	@include('partials.status-toast')
+	
 @endsection

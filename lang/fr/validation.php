@@ -46,7 +46,7 @@ return [
     'email' => 'Veuillez entrer une adresse email valide.',
     'ends_with' => 'La valeur de ce champ doit se terminer par l\une des valeurs suivantes: ":values".',
     'enum' => 'La valeur sélectionnée est invalide.',
-    'exists' => 'La valeur fournie est invalide.',
+    'exists' => 'Il n\'existe aucun utilisateur avec cette donnée.',
     'file' => 'Ce champ doit prendre un fichier.',
     'filled' => 'Ce champ doit avoir une valeur.',
     'gt' => [
@@ -79,15 +79,15 @@ return [
     'lte' => [
         'numeric' => 'La valeur fournie doit être inférieure ou égale à :value.',
         'file' => 'La taille du fichier chargé doit être inférieure ou égale à :value kilobytes.',
-        'string' => 'La taille de la valeur entrée doit être inférieure ou égale à :value lettres.',
+        'string' => 'La taille de la valeur entrée doit être inférieure ou égale à :value.',
         'array' => 'Le tableau fournie doit avoir un nombre d\'élément inférieur ou égale à :value.',
     ],
     'mac_address' => 'La valeur entrée n\'est pas une adresse MAC valide.',
     'max' => [
-        'numeric' => 'La valeur à fournir ne doit être supérieure à :value.',
-        'file' => 'La taille du fichier à charger ne doit être supérieure à :value kilobytes.',
-        'string' => 'La taille de la valeur entrée ne doit être supérieure à :value lettres.',
-        'array' => 'Le tableau fournie ne doit avoir un nombre d\'élément supérieur à :value.',
+        'numeric' => 'La valeur à fournir ne doit être supérieure à :max.',
+        'file' => 'La taille du fichier à charger ne doit être supérieure à :max kilobytes.',
+        'string' => 'La taille de la valeur entrée ne doit être supérieure à :max lettres.',
+        'array' => 'Le tableau fournie ne doit avoir un nombre d\'élément supérieur à :max.',
     ],
     'mimes' => 'Le fichier chargé doit être de type: :values.',
     'mimetypes' => 'Le fichier chargé doit être d\'un des types suivants: :values.',
@@ -101,7 +101,13 @@ return [
     'not_in' => 'La valeur sélectionnée est invalide.',
     'not_regex' => 'Le format de la valeur sélectionnée est invalide.',
     'numeric' => 'Vous devez fournir une valeur numérique.',
-    'password' => 'Le mot de passe entré n\'est pas valide.',
+    'password' => [
+        'letters' => 'Le mot de passe doit contenir au moins une lettre.',
+        'mixed' => 'Le mot de passe doit contenir au moins une lettre majuscule et une lettre minuscule.',
+        'numbers' => 'Le mot de passe doit contenir au moins un nombre.',
+        'symbols' => 'Le mot de passe field doit contenir au moins un symbole.',
+        'uncompromised' => 'Le mot de passe fourni est compromettante. Entrez une autre s\'il vous plait.',
+    ],
     'present' => 'Le champ :attribute doit être présent.',
     'prohibited' => 'Le champ :attribute est interdit.',
     'prohibited_if' => 'Le champ :attribute est interdit si :other est égale à :value.',
@@ -130,6 +136,9 @@ return [
     'uploaded' => 'Le chargement du fichier a échoué.',
     'url' => 'La valeur fournie n\'est pas une URL valide.',
     'uuid' => 'La valeur fournie n\'est pas un UUID valide.',
+    'greater_than' => [
+        'year' => 'L\'année doit être supérieure à celle du champs :attribute'
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -143,8 +152,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+            'unique' => "L'adresse email fourni est déjà prise.",
         ],
     ],
 
@@ -159,16 +168,8 @@ return [
     |
     */
 
-    'attributes' => [],
-
-    'custom_messages' => [
-        "exists" => [
-            "email" => "Il n'existe aucun utilisateur avec cette adresse email.",
-            "code" => [
-                "invalid" => "Le code à cinq chiffres que vous avez entré est invalide.",
-                "size" => "Votre code doit être long de :size chiffres."
-            ]
-        ],
-    ]
+    'attributes' => [
+        "password" => "mot de passe"
+    ],
 
 ];

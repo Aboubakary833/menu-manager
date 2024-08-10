@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
+use App\Notifications\Auth\SendVerificationEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -20,7 +19,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @mixin Builder
  * @method static where(string $string, string|null $getEmail)
  */
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, HasUlids, HasRoles, HasPermissions;
 
@@ -37,7 +36,6 @@ class User extends Authenticatable
         'phone',
         'created_from',
         'avatar',
-        'country_code',
         'password',
     ];
 
@@ -67,20 +65,16 @@ class User extends Authenticatable
         return $this->belongsTo(Company::class);
     }
 
-    public function code() : HasOne
-    {
-        return $this->hasOne(Code::class);
-    }
-
     public function settings() : HasMany
     {
         return $this->hasMany(Setting::class);
     }
 
-    /**
-     * Mark user's phone number as verified.
-     * @return bool
-     */
+    public function sendEmailVerificationNotification() : void
+    {
+        $this->notify(new SendVerificationEmail);
+    }
+
     public function markPhoneAsVerified() : bool
     {
         return $this->forceFill([
