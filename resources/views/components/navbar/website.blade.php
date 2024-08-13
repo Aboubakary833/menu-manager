@@ -27,7 +27,7 @@
                      class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
                     <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
                         <x-chunks.select.locale class="hidden sm:inline-flex" />
-                        <x-button component="a" href="{{ route('login.index') }}"
+                        <x-button component="a" href="{{ route('login.view') }}"
                                   roundedFull>{{ __("chunks.navbar.website.login") }}</x-button>
                         <x-button component="a" variant="outline" href="{{ route('register.index') }}"
                                   roundedFull>{{ __("chunks.navbar.website.register") }}</x-button>

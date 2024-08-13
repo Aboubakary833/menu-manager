@@ -8,7 +8,21 @@
             <x-card.subtitle>{{ __('pages.auth.register.card_subtitle') }}</x-card>
         </x-card.header>
 		<x-card.body>
-			<x-form>
+			<x-form method="POST" action="{{ route('register.store') }}">
+                <x-form.field
+                    label="{{__('forms.firstname.label')}}"
+                    type="text"
+                    name="firstname"
+                    placeholder="{{__('forms.firstname.placeholder')}}"
+                    labelHidden
+                />
+                <x-form.field
+                    label="{{__('forms.lastname.label')}}"
+                    type="text"
+                    name="lastname"
+                    placeholder="{{__('forms.lastname.placeholder')}}"
+                    labelHidden
+                />
                 <x-form.field
                     label="{{__('forms.email.label')}}"
                     type="email"
@@ -16,17 +30,22 @@
                     placeholder="{{__('forms.email.placeholder.targeted')}}"
                     labelHidden
                 />
+                <x-form.field
+                    label="{{__('forms.password.label')}}"
+                    type="password"
+                    name="password"
+                    placeholder="{{__('forms.password.placeholder')}}"
+                    labelHidden
+                />
+                <x-form.field
+                    label="{{__('forms.confirm_password.label')}}"
+                    type="password"
+                    name="password_confirmation"
+                    placeholder="{{__('forms.password.placeholder')}}"
+                    labelHidden
+                />
 				<div class="my-4 sm:my-6">
 					<x-button type="submit" widthFull roundedFull>{{__("pages.auth.register.submit")}}</x-button>
-				</div>
-				<x-separator label="OU" />
-                <div class="my-4 md:my-6">
-					<x-button variant="outline" href="#" component="a" widthFull>
-						<div class="w-[250px] inline-flex justify-center items-center">
-							<x-icon.google />
-							<span class="ml-2">{{__("pages.auth.shared.continue_with_google")}}</span>
-						</div>
-					</x-button>
 				</div>
 			</x-form>
             <div class="inline-flex items-center">

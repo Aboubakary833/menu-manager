@@ -159,7 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
-        PeterColes\Countries\CountriesServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -183,15 +183,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Countries' => PeterColes\Countries\CountriesFacade::class,
+        //
     ])->toArray(),
-
-    /*
-     |
-     |  Application custom configuration
-     |
-     */
-
-    'countries_now_api' => env("COUNTRIES_NOW_API")
 
 ];

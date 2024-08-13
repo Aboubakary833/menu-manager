@@ -8,7 +8,7 @@
 			<x-card.subtitle>{{ __('pages.auth.login.card_subtitle') }}</x-card>
 		</x-card.header>
 		<x-card.body>
-			<x-form method="POST" action="#">
+			<x-form method="POST" action="{{ route('login.attempt') }}">
 				<x-form.field
 					label="{{__('forms.email.label')}}"
 					type="email"

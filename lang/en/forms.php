@@ -20,5 +20,9 @@ return [
     'password' => [
         'label' => 'Password',
         'placeholder' => 'Enter your password',
+    ],
+    'confirm_password' => [
+        'label' => 'Confirm your password',
+        'placeholder' => 'Confirm your password'
     ]
 ];

@@ -126,7 +126,7 @@
         }
 
         .bg-primary {
-            background-color: rgb(73, 130, 250);
+            background-color: #febc59;
         }
 
         .bg-slate-50 {
@@ -138,11 +138,11 @@
         }
 
         .hover\:bg-primary\/90:hover {
-            background-color: rgb(73, 130, 250, 0.9);
+            background-color: #febc59e5;
         }
 
         .fill-primary {
-            fill: rgb(73, 130, 250);
+            fill: #febc59;
         }
 
         .p-\[10px\] {
@@ -207,27 +207,27 @@
         }
 
         .focus-visible\:ring-2:focus-visible:focus-visible {
-            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(147, 197, 253, 0.5), 0 0 rgb(0, 0, 0, 0);
+            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(254, 188, 89, 0.5), 0 0 rgb(0, 0, 0, 0);
         }
 
         .focus-visible\:ring-2:focus-visible:focus-visible {
-            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(147, 197, 253, 0.5), 0 0 rgb(0, 0, 0, 0);
+            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(254, 188, 89, 0.5), 0 0 rgb(0, 0, 0, 0);
         }
 
         .focus-visible\:ring-2:focus-visible:focus-visible {
-            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(147, 197, 253, 0.5), 0 0 rgb(0, 0, 0, 0);
+            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(254, 188, 89, 0.5), 0 0 rgb(0, 0, 0, 0);
         }
 
         .focus-visible\:ring-2:focus-visible:focus-visible {
-            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(147, 197, 253, 0.5), 0 0 rgb(0, 0, 0, 0);
+            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(254, 188, 89, 0.5), 0 0 rgb(0, 0, 0, 0);
         }
 
         .focus-visible\:ring-2:focus-visible:focus-visible {
-            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(147, 197, 253, 0.5), 0 0 rgb(0, 0, 0, 0);
+            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(254, 188, 89, 0.5), 0 0 rgb(0, 0, 0, 0);
         }
 
         .focus-visible\:ring-2:focus-visible:focus-visible {
-            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(147, 197, 253, 0.5), 0 0 rgb(0, 0, 0, 0);
+            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(0px + 0px) rgb(254, 188, 89, 0.5), 0 0 rgb(0, 0, 0, 0);
         }
 
         .transition-colors {
@@ -264,7 +264,7 @@
                         <table align="center" width="100%" class="w-fit m-auto" role="presentation" cellspacing="0" cellpadding="0" border="0">
                             <tbody style="width:100%">
                             <tr style="width:100%">
-                                <td><img class="w-20 h-20" alt="Menu Manager" src="{{ $message->embed(public_path("logo.png"))  }}" style="border:none;display:block;outline:none;text-decoration:none"></td>
+                                <td><img alt="Menu Manager" src="{{ $message->embed(public_path("logo.png"))  }}" style="width: 80px; height: 80px; border:none;display:block;outline:none;text-decoration:none"></td>
                             </tr>
                             </tbody>
                         </table>
@@ -282,7 +282,7 @@
                         <table align="center" width="100%" class="my-5 text-center" border="0" cellpadding="0" cellspacing="0" role="presentation">
                             <tbody>
                             <tr>
-                                <td><a href="{{ $url }}" class="w-[200px] font-semibold bg-primary hover:bg-primary/90 h-10 rounded-md px-3 inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-white transition-colors outline-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" style="color:#FFFFFF;text-decoration:none">{{ __("mails.messages.verify.button_text", locale: $locale) }}</a></td>
+                                <td><a href="{{ $url }}" class="w-[200px] font-semibold bg-primary hover:bg-primary/90 h-10 rounded-md px-3 inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-white transition-colors outline-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" style="color:#3d3d3d;text-decoration:none">{{ __("mails.messages.verify.button_text", locale: $locale) }}</a></td>
                             </tr>
                             </tbody>
                         </table>
@@ -305,9 +305,9 @@
                                     <table align="center" width="100%" class="text-center mx-auto" role="presentation" cellspacing="0" cellpadding="0" border="0">
                                         <tbody style="width:100%">
                                         <tr style="width:100%">
-                                            <td><a href="#" style="color:#067df7;text-decoration:none"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzZDNkM2QiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1mYWNlYm9vayI+PHBhdGggZD0iTTE4IDJoLTNhNSA1IDAgMCAwLTUgNXYzSDd2NGgzdjhoNHYtOGgzbDEtNGgtNFY3YTEgMSAwIDAgMSAxLTFoM3oiLz48L3N2Zz4=" width="24" height="24" style="border:none;display:block;outline:none;text-decoration:none"></a></td>
-                                            <td><a href="#" style="color:#067df7;text-decoration:none"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzZDNkM2QiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1saW5rZWRpbiI+PHBhdGggZD0iTTE2IDhhNiA2IDAgMCAxIDYgNnY3aC00di03YTIgMiAwIDAgMC0yLTIgMiAyIDAgMCAwLTIgMnY3aC00di03YTYgNiAwIDAgMSA2LTZ6Ii8+PHJlY3Qgd2lkdGg9IjQiIGhlaWdodD0iMTIiIHg9IjIiIHk9IjkiLz48Y2lyY2xlIGN4PSI0IiBjeT0iNCIgcj0iMiIvPjwvc3ZnPg==" width="24" height="24" style="border:none;display:block;outline:none;text-decoration:none"></a></td>
-                                            <td><a href="#" style="color:#067df7;text-decoration:none"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzZDNkM2QiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS10d2l0dGVyIj48cGF0aCBkPSJNMjIgNHMtLjcgMi4xLTIgMy40YzEuNiAxMC05LjQgMTcuMy0xOCAxMS42IDIuMi4xIDQuNC0uNiA2LTJDMyAxNS41LjUgOS42IDMgNWMyLjIgMi42IDUuNiA0LjEgOSA0LS45LTQuMiA0LTYuNiA3LTMuOCAxLjEgMCAzLTEuMiAzLTEuMnoiLz48L3N2Zz4=" width="24" height="24" style="border:none;display:block;outline:none;text-decoration:none"></a></td>
+                                            <td><a href="#" style="color:#febc59;text-decoration:none"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzZDNkM2QiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1mYWNlYm9vayI+PHBhdGggZD0iTTE4IDJoLTNhNSA1IDAgMCAwLTUgNXYzSDd2NGgzdjhoNHYtOGgzbDEtNGgtNFY3YTEgMSAwIDAgMSAxLTFoM3oiLz48L3N2Zz4=" width="24" height="24" style="border:none;display:block;outline:none;text-decoration:none"></a></td>
+                                            <td><a href="#" style="color:#febc59;text-decoration:none"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzZDNkM2QiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1saW5rZWRpbiI+PHBhdGggZD0iTTE2IDhhNiA2IDAgMCAxIDYgNnY3aC00di03YTIgMiAwIDAgMC0yLTIgMiAyIDAgMCAwLTIgMnY3aC00di03YTYgNiAwIDAgMSA2LTZ6Ii8+PHJlY3Qgd2lkdGg9IjQiIGhlaWdodD0iMTIiIHg9IjIiIHk9IjkiLz48Y2lyY2xlIGN4PSI0IiBjeT0iNCIgcj0iMiIvPjwvc3ZnPg==" width="24" height="24" style="border:none;display:block;outline:none;text-decoration:none"></a></td>
+                                            <td><a href="#" style="color:#febc59;text-decoration:none"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzZDNkM2QiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS10d2l0dGVyIj48cGF0aCBkPSJNMjIgNHMtLjcgMi4xLTIgMy40YzEuNiAxMC05LjQgMTcuMy0xOCAxMS42IDIuMi4xIDQuNC0uNiA2LTJDMyAxNS41LjUgOS42IDMgNWMyLjIgMi42IDUuNiA0LjEgOSA0LS45LTQuMiA0LTYuNiA3LTMuOCAxLjEgMCAzLTEuMiAzLTEuMnoiLz48L3N2Zz4=" width="24" height="24" style="border:none;display:block;outline:none;text-decoration:none"></a></td>
                                         </tr>
                                         </tbody>
                                     </table>

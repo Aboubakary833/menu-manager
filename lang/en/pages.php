@@ -23,7 +23,7 @@ return [
             'description' => 'Create a new account and save your restaurant employees time.',
             'card_title' => 'Create a new account',
             'card_subtitle' => 'Register to start using bunch of amazing features to manage your restaurant or point of sales.',
-            'submit' => 'Continue the registration',
+            'submit' => 'Register',
             'already_registered' => 'Already have an account?',
             'login' => 'Login',
         
@@ -39,6 +39,13 @@ return [
             'login' => 'Login',
         ],
 
+        'new_password' => [
+            'title' => 'New password',
+            'description' => 'Set new password',
+            'card_subtitle' => 'Enter your email and your new password and submit to update your password.',
+            'submit' => 'Submit',
+        ],
+
         'verify' => [
             'title' => 'Verify your email address',
             'heading' => 'Verify your email address',
@@ -46,11 +53,5 @@ return [
             'notReceiveYet' => 'Not receive an email yet?',
             'resend' => 'Resend the mail'
         ],
-
-        'complete' => [
-            'title' => 'Complete registration',
-            'card_title' => 'Complete registration',
-            'submit' => 'Submit'
-        ]
     ]
 ];

@@ -17,17 +17,21 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Cookie::get("__locale"))
-            app()->setLocale(Cookie::get("__locale"));
-        else if (!$request->getPreferredLanguage())
-            app()->setLocale("en");
+        if (Cookie::get('__locale'))
+            app()->setLocale(Cookie::get('__locale'));
 
-        else if (!Str::startsWith($request->getPreferredLanguage(), "fr"))
-            app()->setLocale("en");
+        else if (
+            !$request->getPreferredLanguage() ||
+            !Str::startsWith($request->getPreferredLanguage(), 'fr')
+            )
+        {
+            app()->setLocale('en');
+        }
         else
-            app()->setLocale("fr");
+            app()->setLocale('fr');
 
-        $request->setLocale(config("app.locale"));
+        $request->setLocale(config('app.locale'));
+        
         return $next($request);
     }
 }

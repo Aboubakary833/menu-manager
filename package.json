@@ -7,7 +7,7 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@types/node": "^20.14.14",
+        "@types/node": "^20.14.15",
         "@types/react": "^18.3.3",
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.3",
@@ -22,6 +22,7 @@
         "vite-plugin-require": "^1.2.14"
     },
     "dependencies": {
+        "@preline/overlay": "^2.4.1",
         "@preline/pin-input": "^2.4.1",
         "@preline/remove-element": "^2.4.1",
         "preline": "^2.4.1"

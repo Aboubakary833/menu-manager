@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5886c18c73defa291887509a8e92ee62",
+    "content-hash": "77a6a221b07c6171fc795b767e59e87a",
     "packages": [
         {
             "name": "blade-ui-kit/blade-icons",
@@ -3069,70 +3069,6 @@
             "time": "2020-10-15T08:29:30+00:00"
         },
         {
-            "name": "petercoles/multilingual-country-list",
-            "version": "1.2.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/petercoles/Multilingual-Country-List.git",
-                "reference": "00d60aecb848c3ae8b3becf5828cc069b9d2b19b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/petercoles/Multilingual-Country-List/zipball/00d60aecb848c3ae8b3becf5828cc069b9d2b19b",
-                "reference": "00d60aecb848c3ae8b3becf5828cc069b9d2b19b",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5|~6|~7|~8|~9|~10|~11",
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1",
-                "phpunit/phpunit": ">=9 <10"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "PeterColes\\Countries\\CountriesServiceProvider"
-                    ],
-                    "aliases": {
-                        "Countries": "PeterColes\\Countries\\CountriesFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PeterColes\\Countries\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Peter Coles",
-                    "email": "peterdcoles@gmail.com",
-                    "homepage": "https://petercoles.com"
-                }
-            ],
-            "description": "Lookup Objects for ISO 3166 Country Names and Codes",
-            "homepage": "https://github.com/petercoles/multilingualcountry-list",
-            "keywords": [
-                "ISO 3166",
-                "country codes",
-                "country lists",
-                "country lookup",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/petercoles/multilingual-country-list/issues",
-                "source": "https://github.com/petercoles/Multilingual-Country-List/tree/1.2.12"
-            },
-            "time": "2024-03-13T16:50:27+00:00"
-        },
-        {
             "name": "phpoption/phpoption",
             "version": "1.9.3",
             "source": {
@@ -4032,89 +3968,6 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
-        },
-        {
-            "name": "rinvex/countries",
-            "version": "v9.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rinvex/countries.git",
-                "reference": "0fdccd0e37bc2f53ae93dda7bbb498189f2e4e22"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rinvex/countries/zipball/0fdccd0e37bc2f53ae93dda7bbb498189f2e4e22",
-                "reference": "0fdccd0e37bc2f53ae93dda7bbb498189f2e4e22",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.1.0"
-            },
-            "require-dev": {
-                "codedungeon/phpunit-result-printer": "^0.32.0",
-                "phpunit/phpunit": "^10.1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Rinvex\\Country\\Providers\\CountryServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Rinvex\\Country\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rinvex LLC",
-                    "email": "help@rinvex.com",
-                    "homepage": "https://rinvex.com"
-                },
-                {
-                    "name": "Abdelrahman Omran",
-                    "email": "me@omranic.com",
-                    "homepage": "https://omranic.com",
-                    "role": "Project Lead"
-                },
-                {
-                    "name": "The Generous PHP Community",
-                    "homepage": "https://github.com/rinvex/countries/contributors"
-                }
-            ],
-            "description": "Rinvex Countries is a simple and lightweight package for retrieving country details with flexibility. A whole bunch of data including name, demonym, capital, iso codes, dialling codes, geo data, currencies, flags, emoji, and other attributes for all 250 countries worldwide at your fingertips.",
-            "homepage": "https://rinvex.com",
-            "keywords": [
-                "Flexible",
-                "Simple",
-                "countries",
-                "country",
-                "currencies",
-                "demonym",
-                "dialling",
-                "emoji",
-                "flags",
-                "geographic",
-                "languages",
-                "rinvex",
-                "svg"
-            ],
-            "support": {
-                "docs": "https://github.com/rinvex/countries/blob/master/README.md",
-                "email": "help@rinvex.com",
-                "issues": "https://github.com/rinvex/countries/issues",
-                "source": "https://github.com/rinvex/countries"
-            },
-            "time": "2023-05-02T00:57:05+00:00"
         },
         {
             "name": "spatie/commonmark-shiki-highlighter",

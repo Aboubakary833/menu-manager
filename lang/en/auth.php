@@ -20,5 +20,6 @@ return [
     'complete' => 'Please complete your registration.',
     'verification' => [
         'notification_sent' => 'A new verification email has been sent to you.'
-    ]
+    ],
+    'oauth_failed' => 'There is no user with this email address.',
 ];

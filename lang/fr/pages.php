@@ -23,7 +23,7 @@ return [
         'description' => 'Créer un nouveau compte et faites gagner du temps au employés de votre restaurant.',
         'card_title' => 'Créer un compte',
         'subtitle' => 'Inscrivez-vous pour utiliser un tas de fonctionnalités qui vous permettront de gérer votre restaurant ou votre point de ventes.',
-        'submit' => 'Poursuivre l\'inscription',
+        'submit' => 'S\'inscrire',
         'already_registered' => 'Avez-vous déjà un compte?',
         'login' => 'Connectez-vous',
     ],

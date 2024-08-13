@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-@section('title', "pages.auth.verify.title")
+@section('title', __('pages.auth.verify.title'))
 @section('main')
 
     <div class="w-[300px] sm:w-[400px] md:w-[450px]">

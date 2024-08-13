@@ -24,11 +24,12 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         VerifyEmail::toMailUsing(function (object $notifiable, string $url) {
-            $locale = getSetting("locale", $notifiable) ?? "en";
+            $locale = getSetting('locale', $notifiable) ?? 'en';
             return (new MailMessage)
+                ->subject(__('mails.messages.verify.title', locale: $locale))
                 ->view(
-                    "mails.auth.verify",
-                    compact("url", "locale")
+                    'mails.verify',
+                    compact('url', 'locale')
                 );
         });
     }

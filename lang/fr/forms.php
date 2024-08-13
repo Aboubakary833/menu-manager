@@ -20,5 +20,9 @@ return [
     'password' => [
         'label' => 'Mot de passe',
         'placeholder' => 'Entrez votre mot de passe',
+    ],
+    'confirm_password' => [
+        'label' => 'Confirmez votre mot de passe',
+        'placeholder' => 'Confirmez votre mot de passe'
     ]
 ];

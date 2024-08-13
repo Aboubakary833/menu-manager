@@ -21,4 +21,5 @@ return [
     'verification' => [
         'notification_sent' => 'Un nouveau mail de vérification vous a été envoyé.'
     ],
+    'oauth_failed' => 'Il n\'existe aucun utilisateur avec cette adresse email.',
 ];
