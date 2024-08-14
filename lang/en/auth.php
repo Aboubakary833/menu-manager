@@ -21,5 +21,8 @@ return [
     'verification' => [
         'notification_sent' => 'A new verification email has been sent to you.'
     ],
-    'oauth_failed' => 'There is no user with this email address.',
+    'oauth' => [
+        'failed' => 'There is no user with this email address.',
+        'type_error' => 'Parameter type not provided in redirect url.',
+    ]
 ];

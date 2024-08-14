@@ -4,7 +4,8 @@ return [
   'auth' => [
 
 	'shared' => [
-		'continue_with_google' => 'S\'authentifier via Google',
+		'login_with_google' => 'Se connecter via Google',
+		'signup_with_google' => 'S\'inscrire via Google',
 	],
 
 	'login' => [
@@ -46,11 +47,16 @@ return [
         'resend' => 'Renvoyer le mail'
     ],
 
-	'complete' => [
-        'title' => 'Terminez votre inscription',
-        'card_title' => 'Compléter votre inscription',
-        'submit' => 'Soumettre'
-    ]
+    'complete' => [
+      'title' => 'Complétez vos information',
+      'description' => 'Remplissez le formulaire avec des informations additionnelles.',
+      'card_title' => 'Complétez vos informations.',
+      'card_subtitle' => 'Nous avons besoin de certaines informations nécessaire avant que vous ne continuez.',
+      'type_client' => 'Client',
+      'type_enterprise' => 'Entreprise',
+      'user_type_label' => 'Qui êtes-vous?(Cliquez pour sélectionner)',
+      'submit' => 'Compléter',
+  ]
 
   ]
 ];

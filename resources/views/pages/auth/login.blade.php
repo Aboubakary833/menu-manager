@@ -29,10 +29,10 @@
 				</div>
 				<x-separator label="OU" />
 				<div class="my-4 md:my-6">
-					<x-button variant="outline" href="#" component="a" widthFull>
+					<x-button variant="outline" href="{{ route('oauth.redirect', ['type' => 'login']) }}" component="a" widthFull>
 						<div class="w-[250px] inline-flex justify-center items-center">
 							<x-icon.google />
-							<span class="ml-2">{{__("pages.auth.shared.continue_with_google")}}</span>
+							<span class="ml-2">{{__("pages.auth.shared.login_with_google")}}</span>
 						</div>
 					</x-button>
 				</div>

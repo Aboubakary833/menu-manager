@@ -1,1 +1,2 @@
-import "./pin.ts";
+import "./pin";
+import "./radio-card";

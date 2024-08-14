@@ -10,17 +10,10 @@
 		<x-card.body>
 			<x-form method="POST" action="{{ route('register.store') }}">
                 <x-form.field
-                    label="{{__('forms.firstname.label')}}"
+                    label="{{__('forms.name.label')}}"
                     type="text"
-                    name="firstname"
-                    placeholder="{{__('forms.firstname.placeholder')}}"
-                    labelHidden
-                />
-                <x-form.field
-                    label="{{__('forms.lastname.label')}}"
-                    type="text"
-                    name="lastname"
-                    placeholder="{{__('forms.lastname.placeholder')}}"
+                    name="name"
+                    placeholder="{{__('forms.name.placeholder')}}"
                     labelHidden
                 />
                 <x-form.field
@@ -37,15 +30,17 @@
                     placeholder="{{__('forms.password.placeholder')}}"
                     labelHidden
                 />
-                <x-form.field
-                    label="{{__('forms.confirm_password.label')}}"
-                    type="password"
-                    name="password_confirmation"
-                    placeholder="{{__('forms.password.placeholder')}}"
-                    labelHidden
-                />
 				<div class="my-4 sm:my-6">
 					<x-button type="submit" widthFull roundedFull>{{__("pages.auth.register.submit")}}</x-button>
+				</div>
+                <x-separator label="OU" />
+				<div class="my-4 md:my-6">
+					<x-button variant="outline" href="{{ route('oauth.redirect', ['type' => 'signup']) }}" component="a" widthFull>
+						<div class="w-[250px] inline-flex justify-center items-center">
+							<x-icon.google />
+							<span class="ml-2">{{__("pages.auth.shared.signup_with_google")}}</span>
+						</div>
+					</x-button>
 				</div>
 			</x-form>
             <div class="inline-flex items-center">

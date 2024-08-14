@@ -16,8 +16,7 @@ class UserSeeder extends Seeder
     {
         $role = Role::findByName(RoleEnum::getValue('SUPER_ADMIN'));
         $user = User::create([
-            'firstname' => 'Aboubakary',
-            'lastname' => 'Cissé',
+            'name' => 'Aboubakary Cissé',
             'email' => 'aboubakarycisse410@gmail.com',
             'phone' => '66292862',
             'password' => 'password',

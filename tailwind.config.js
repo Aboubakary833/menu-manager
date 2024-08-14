@@ -7,7 +7,6 @@ module.exports = {
         "./resources/**/*.ts",
         "./resources/**/*.js"
     ],
-    plugins: [require("preline/plugin")],
     theme: {
         extend: {
             colors: {
@@ -103,4 +102,5 @@ module.exports = {
         },
 
     },
+    plugins: [require("preline/plugin")],
 };

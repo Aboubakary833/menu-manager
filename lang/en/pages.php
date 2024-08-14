@@ -4,7 +4,8 @@ return [
     'auth' => [
 
         'shared' => [
-            'continue_with_google' => 'Authenticate with Google',
+            'login_with_google' => 'Login with Google',
+            'signup_with_google' => 'Signup with Google',
         ],
 
         'login' => [
@@ -53,5 +54,16 @@ return [
             'notReceiveYet' => 'Not receive an email yet?',
             'resend' => 'Resend the mail'
         ],
+
+        'complete' => [
+            'title' => 'Complete your information',
+            'description' => 'Fill the form with some additional informations.',
+            'card_title' => 'Complete your information',
+            'card_subtitle' => 'We need some more necessary informations about you before you procceed.',
+            'type_client' => 'Client',
+            'type_enterprise' => 'Enterprise',
+            'user_type_label' => 'Who are you?(Click to select)',
+            'submit' => 'Complete',
+        ]
     ]
 ];

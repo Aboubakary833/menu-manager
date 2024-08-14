@@ -1,13 +1,9 @@
 <?php
 
 return [
-    'firstname' => [
-        'label' => 'Firstname',
-        'placeholder' => 'Enter your firstname'
-    ],
-    'lastname' => [
-        'label' => 'Lastname',
-        'placeholder' => 'Enter your lastname'
+    'name' => [
+        'label' => 'Name',
+        'placeholder' => 'Enter your name'
     ],
     'email' => [
         'label' => 'Email address',
@@ -24,5 +20,9 @@ return [
     'confirm_password' => [
         'label' => 'Confirm your password',
         'placeholder' => 'Confirm your password'
+    ],
+    'enterprise' => [
+        'label' => 'Enterprise name',
+        'placeholder' => 'Enter your enterprise name',
     ]
 ];

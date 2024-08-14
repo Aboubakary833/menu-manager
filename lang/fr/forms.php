@@ -24,5 +24,9 @@ return [
     'confirm_password' => [
         'label' => 'Confirmez votre mot de passe',
         'placeholder' => 'Confirmez votre mot de passe'
+    ],
+    'enterprise' => [
+        'label' => 'Nom de l\'entreprise',
+        'placeholder' => 'Entrez le nom de votre entreprise',
     ]
 ];
