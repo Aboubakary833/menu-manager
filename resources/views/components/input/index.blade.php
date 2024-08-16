@@ -2,7 +2,6 @@
     'type' => 'text',
     'name' => '',
     'size' => 'base',
-    'placeholder' => '',
     'roundedFull' => false,
 ])
 
@@ -28,5 +27,4 @@
     type="{{ $type }}"
     name="{{ $name }}"
     {{ $attributes->twMerge($classNames) }}
-    placeholder="{{ $placeholder }}"
 />

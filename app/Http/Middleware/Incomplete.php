@@ -17,7 +17,7 @@ class Incomplete
     public function handle(Request $request, Closure $next): Response
     {
         $user = $request->user();
-        if ($user->roles->count() || $user->password)
+        if ($user->roles->count() && $user->password)
             return to_route('home');
         return $next($request);
     }

@@ -1,4 +1,4 @@
-@extends("app")
+@extends("layouts.base")
 @section("content")
 	<main class="flex justify-center">
 		<div class="min-h-screen w-full sm:w-[500px] flex flex-col justify-between">

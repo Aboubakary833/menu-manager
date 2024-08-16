@@ -13,30 +13,11 @@ class RadioCard {
             "input[type='radio']"
         ) as HTMLInputElement;
 
-        ['click', 'focusin'].forEach(event => {
-			this.element.addEventListener(event, this.onFocus.bind(this))
-		});
+        if (this.radio.checked)
+            this.setActive();
     }
 
-    private onFocus(event: Event) {
-		
-        const target = event.target as HTMLElement | SVGElement;
-
-        if (target !== this.element && !this.element.contains(target)) return;
-
-        this.setActive();
-
-        const { showOrHide, showOrHideAction } = this.element.dataset;
-
-        if (showOrHide && showOrHideAction) {
-            const showOrHideElement = document.querySelector(showOrHide);
-            if (showOrHideAction === "show")
-                showOrHideElement?.setAttribute("style", "display: block");
-            else showOrHideElement?.setAttribute("style", "display: none");
-        }
-    }
-
-    private setActive() {
+    public setActive() {
 		this.status = true;
         this.radio.checked = true;
         this.element.setAttribute(
@@ -46,6 +27,15 @@ class RadioCard {
                 .toString()
                 .replace(this.inactiveClasses, this.activeClasses)
         );
+
+        const { showOrHide, showOrHideAction } = this.element.dataset;
+
+        if (showOrHide && showOrHideAction) {
+            const showOrHideElement = document.querySelector(showOrHide);
+            if (showOrHideAction === "show")
+                showOrHideElement?.setAttribute("style", "display: block");
+            else showOrHideElement?.setAttribute("style", "display: none");
+        }
     }
 
     public setInactive() {
@@ -82,12 +72,14 @@ window.addEventListener("load", function () {
 			const target = ev.target as HTMLElement|SVGElement;
 			if (!radioCardsParent.contains(target))
 				return;
+            let element:HTMLDivElement;
 			if (!radioCardElements.includes(target as HTMLDivElement))
-			{
-				const ancestor = radioCardElements.find((rc) => rc.contains(target));
-				
-			}
-			
+				element = radioCardElements.find((rc) => rc.contains(target)) as HTMLDivElement;
+            
+            const activeRadioCard = radioCards.find(r => r.getStatus());
+            if (activeRadioCard)
+                activeRadioCard.setInactive();
+            (radioCards.find(r => r.getElement() === element) as RadioCard).setActive();
 		});
 	}
 });

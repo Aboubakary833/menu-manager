@@ -2,6 +2,7 @@
 	'name' => '',
 	'showOrHide' => null,
 	'showOrHideAction' => null,
+	'value' => '1',
 	'checked' => false,
 	'tabindex' => 0
 ])
@@ -23,5 +24,5 @@
 			</div>
 		</div>
 	</div>
-<input type="radio" style="display: none;" id="{{ $name }}" name="{{ $name }}" @checked($checked) />
+<input type="radio" style="display: none;" id="{{ $name }}" name="{{ $name }}" value="{{ $value }}" @checked($checked) />
 </div>

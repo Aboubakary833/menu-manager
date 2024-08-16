@@ -23,8 +23,7 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'firstname' => 'bail|required|string|min:2|max:50',
-            'lastname' => 'bail|required|string|min:2|max:50',
+            'name' => 'bail|required|string|min:2|max:50',
             'email' => 'bail|required|string|email|unique:users,email',
             'password' => [
                 'bail',
@@ -33,8 +32,7 @@ class RegisterRequest extends FormRequest
                 ->max(16)
                 ->letters()
                 ->numbers()
-                ->symbols(),
-                'confirmed',
+                ->symbols()
             ]
         ];
     }

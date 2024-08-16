@@ -8,7 +8,7 @@
   lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
   dark:bg-dark-700 dark:border-dark-500/90
  ">
-    <div class="h-[59px] flex items-center gap-x-2 border-b border-b-info-200 dark:border-dark-500/90">
+    <div class="h-[60px] flex items-center gap-x-1 border-b border-b-info-200 dark:border-dark-500/90">
         <img src="{{ asset('logo.png') }}" alt="Menu manager" class="w-14 h-14">
         <div>
             <h1 class="text-2xl font-bold text-primary-600">Tableau de bord</h1>

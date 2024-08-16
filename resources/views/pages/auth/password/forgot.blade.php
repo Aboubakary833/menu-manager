@@ -10,7 +10,7 @@
 			<x-card.subtitle>{{ __('pages.auth.forgot_password.card_subtitle') }}</x-card>
 		</x-card.header>
 		<x-card.body>
-			<x-form>
+			<x-form method="POST" action="{{ route('password.sendLink') }}">
 				<x-form.field
 					label="{{__('forms.email.label')}}"
 					type="email"

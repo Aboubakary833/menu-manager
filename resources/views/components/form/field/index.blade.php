@@ -13,7 +13,7 @@
 			{{ $label }}
 		</x-form.label>
 	@endif
-	<x-input :type="$type" :id="$id" :name="$name" :placeholder="$placeholder" />
+	<x-input :type="$type" :id="$id" :name="$name" value="{{ old($name) }}" :placeholder="$placeholder" {{ $attributes }} />
     @error($name)
         <p class="text-sm text-danger mt-2">{{ $message }}</p>
     @enderror

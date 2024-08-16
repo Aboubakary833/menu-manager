@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->ulid("id")->primary();
-            $table->string("name");
-            $table->foreignUlid("menu_id")->references("id")->on("menus")->cascadeOnDelete();
+            $table->ulid('id')->primary();
+            $table->string('name');
+            $table->foreignUlid('menu_id')->references('id')->on('menus')->cascadeOnDelete();
             $table->timestamps();
         });
     }

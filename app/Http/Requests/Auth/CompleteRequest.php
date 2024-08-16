@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\Rules\RequiredIf;
 
 class CompleteRequest extends FormRequest
 {
@@ -11,7 +13,6 @@ class CompleteRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        dd($this->all());
         return true;
     }
 
@@ -23,7 +24,25 @@ class CompleteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'type' => 'bail|required|boolean',
+            'enterprise' => [
+                'bail',
+                'nullable',
+                new RequiredIf((int)$this->type),
+                'string',
+                'min:2',
+                'max:20'
+            ],
+            'password' => [
+                'bail',
+                'nullable',
+                new RequiredIf(!$this->user()->password),
+                Password::min(8)
+                ->max(16)
+                ->letters()
+                ->numbers()
+                ->symbols()
+            ]
         ];
     }
 }

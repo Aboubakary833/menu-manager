@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('order_item', function (Blueprint $table) {
             $table->id();
-            $table->foreignUlid("order_id")->references("id")->on("orders")->cascadeOnDelete();
-            $table->foreignUlid("item_id")->references("id")->on("items")->cascadeOnDelete();
+            $table->foreignUlid('order_id')->references('id')->on('orders')->cascadeOnDelete();
+            $table->foreignUlid('item_id')->references('id')->on('items')->cascadeOnDelete();
             $table->timestamps();
         });
     }

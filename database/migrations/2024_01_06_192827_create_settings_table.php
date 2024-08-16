@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('settings', function (Blueprint $table) {
-            $table->ulid("id")->primary();
-            $table->foreignUlid("user_id")
-                ->references("id")
-                ->on("users")
+            $table->ulid('id')->primary();
+            $table->foreignUlid('user_id')
+                ->references('id')
+                ->on('users')
                 ->cascadeOnDelete();
-            $table->string("key");
-            $table->string("value");
+            $table->string('key');
+            $table->string('value');
             $table->timestamps();
         });
     }

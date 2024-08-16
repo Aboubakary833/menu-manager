@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone')->unique()->nullable();
             $table->timestamp("phone_verified_at")->nullable();
             $table->string('created_from')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('avatar')->default('storage/avatars/default.svg');
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();

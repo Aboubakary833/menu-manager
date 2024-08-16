@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('places', function (Blueprint $table) {
-            $table->ulid("id")->primary();
-            $table->enum("type", \App\Enums\PlaceType::values());
-            $table->string("number");
+            $table->ulid('id')->primary();
+            $table->enum('type', \App\Enums\PlaceType::values());
+            $table->string('number');
             $table->timestamps();
         });
     }

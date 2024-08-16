@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('category_item', function (Blueprint $table) {
             $table->id();
-            $table->foreignUlid("category_id")->references("id")->on("categories")->cascadeOnDelete();
-            $table->foreignUlid("item_id")->references("id")->on("items")->cascadeOnDelete();
+            $table->foreignUlid('category_id')->references('id')->on('categories')->cascadeOnDelete();
+            $table->foreignUlid('item_id')->references('id')->on('items')->cascadeOnDelete();
             $table->timestamps();
         });
     }

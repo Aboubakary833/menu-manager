@@ -12,10 +12,10 @@ enum RoleEnum : string implements EnumContract
 
     use HasEnumUtils;
 
-    case SUPER_ADMIN = 0;
+    case SUPER_ADMIN = 'super_admin';
 
-    case ADMIN = 1;
+    case ADMIN = 'admin';
 
-    case CLIENT = 2;
+    case CLIENT = 'client';
 
 }

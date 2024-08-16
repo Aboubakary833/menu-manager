@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menus', function (Blueprint $table) {
-            $table->ulid("id")->primary();
-            $table->string("name");
-            $table->enum("type", \App\Enums\MenuType::values());
-            $table->tinyInteger("day")->nullable();
+            $table->ulid('id')->primary();
+            $table->string('name');
+            $table->enum('type', \App\Enums\MenuType::values());
+            $table->tinyInteger('day')->nullable();
             $table->timestamps();
         });
     }

@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
 
-class MakeJSXEmail extends GeneratorCommand
+class MakeJSXEMail extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.

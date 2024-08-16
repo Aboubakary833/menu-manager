@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Actions\Auth\RegisterUser;
+use App\Actions\Auth\CreateNewUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 
 class RegisterController extends Controller
@@ -15,10 +14,7 @@ class RegisterController extends Controller
      */
     public function __invoke(RegisterRequest $request) : RedirectResponse
     {
-        $user = (new RegisterUser)->handle($request);
-
-        auth()->login($user);
-		event(new Registered($user));
+        (new CreateNewUser)->handle($request);
 
         return to_route('verification.notice');
     }

@@ -11,7 +11,7 @@
     </style>
 	@vite("resources/css/app.css")
 </head>
-<body class="dark:bg-dark font-inter">
+<body class="bg-info-100/30 dark:bg-dark font-inter">
 	@yield("content")
 
     @vite("resources/ts/app.ts")

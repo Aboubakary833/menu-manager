@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('menu_item', function (Blueprint $table) {
             $table->id();
-            $table->foreignUlid("menu_id")->references("id")->on("menus")->cascadeOnDelete();
-            $table->foreignUlid("item_id")->references("id")->on("items")->cascadeOnDelete();
+            $table->foreignUlid('menu_id')->references('id')->on('menus')->cascadeOnDelete();
+            $table->foreignUlid('item_id')->references('id')->on('items')->cascadeOnDelete();
             $table->timestamps();
         });
     }

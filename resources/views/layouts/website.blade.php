@@ -1,4 +1,4 @@
-@extends("app")
+@extends("layouts.base")
 @section("content")
 <div class="h-screen">
 	<x-navbar.website />
