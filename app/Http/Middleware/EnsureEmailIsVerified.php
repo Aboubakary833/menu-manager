@@ -26,7 +26,7 @@ class EnsureEmailIsVerified extends EmailVerificationMiddleware
             ($user instanceof MustVerifyEmail &&
                 !$user->hasVerifiedEmail())) {
             return $request->expectsJson()
-                ? abort(403, __("auth.verify"))
+                ? abort(403, __('auth.verify'))
                 : Redirect::guest(URL::route($redirectToRoute ?: 'verification.notice'));
         }
 

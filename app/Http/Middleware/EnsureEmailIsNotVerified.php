@@ -17,7 +17,7 @@ class EnsureEmailIsNotVerified
     public function handle(Request $request, Closure $next): Response
     {
         if ($request->user()->hasVerifiedEmail() || !($request->user() instanceof MustVerifyEmail))
-            return to_route("home");
+            return to_route('home');
 
         return $next($request);
     }

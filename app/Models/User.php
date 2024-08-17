@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\Auth\SendResetPasswordEmail;
 use App\Notifications\Auth\SendVerificationEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
@@ -72,6 +73,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendEmailVerificationNotification() : void
     {
         $this->notify(new SendVerificationEmail);
+    }
+
+    public function sendPasswordResetNotification($token) : void
+    {
+        $this->notify(new SendResetPasswordEmail($token));
     }
 
     public function markPhoneAsVerified() : bool

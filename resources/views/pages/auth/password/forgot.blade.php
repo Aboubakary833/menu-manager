@@ -29,4 +29,6 @@
 		</x-card.body>
 	</x-card>
 
+	@include('partials.status-toast')
+
 @endsection

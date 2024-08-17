@@ -4,12 +4,12 @@
 @section('main')
     <x-card class="shadow-none border-0 border-transparent" withoutPaddings>
         <x-card.header class="my-4" noBorder>
-			<x-card.title class="text-3xl font-jungleAdventurer text-center mb-8 xs:text-2xl xs:mb-6">{{__("pages.auth.new_password.card_title")}}</x-card.title>
+			<x-card.title class="text-3xl font-jungleAdventurer text-center mb-8 xs:text-2xl xs:mb-6">{{__("pages.auth.new_password.title")}}</x-card.title>
 			<x-card.subtitle>{{ __('pages.auth.new_password.card_subtitle') }}</x-card>
 		</x-card.header>
 		<x-card.body>
 			<x-form method="POST" action="{{ route('password.new') }}">
-				<x-input type="hidden" value="{{ $token }}" required autocomplete="off" />
+				<x-input type="hidden" name="token" value="{{ $token }}" required autocomplete="off" />
 				<x-form.field
 					label="{{__('forms.email.label')}}"
 					type="email"

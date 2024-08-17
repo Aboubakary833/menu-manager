@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Http;
+use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,8 +21,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Http::macro("countriesNowApi", function () {
-            return Http::baseUrl(config("app.countries_now_api"));
+        ResetPassword::toMailUsing(function(object $notifiable, string $token) {
+            $locale = getSetting('locale', $notifiable) ?? 'en';
+            $url = url(route('password.reset', [
+                'token' => $token,
+                'email' => $notifiable->getEmailForPasswordReset(),
+            ], false));
+            return (new MailMessage)
+                ->subject(__('mails.messages.reset_password.title', locale: $locale))
+                ->view('mails.reset_password', compact('url', 'locale'));
         });
     }
 }

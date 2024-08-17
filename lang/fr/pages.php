@@ -39,6 +39,13 @@ return [
 		'login' => 'Se connecter',
   ],
 
+  'new_password' => [
+    'title' => 'Nouveau mot de passe',
+    'description' => 'Définissez un nouveau mot de passe',
+    'card_subtitle' => 'Entrez le nouveau mot de passe et votre adresse email puis soumettez pour changer votre mot de passe.',
+    'submit' => 'Soumettre',
+],
+
     'verify' => [
         'title' => 'Valider votre adresse email',
         'heading' => 'Vérifier votre adresse email',
