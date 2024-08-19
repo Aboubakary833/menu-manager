@@ -15,9 +15,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.5",
         "mallardduck/blade-lucide-icons": "^1.11",
-        "predis/predis": "^2.2",
-        "spatie/laravel-markdown": "^2.4",
-        "spatie/laravel-permission": "^6.2"
+        "predis/predis": "^2.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

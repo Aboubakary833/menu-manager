@@ -16,7 +16,7 @@ class Complete
     public function handle(Request $request, Closure $next): Response
     {
         $user = $request->user();
-        if (!$user->password || !$user->roles->count())
+        if (!$user->password || !$user->role)
             return to_route('complete.view');
         return $next($request);
     }

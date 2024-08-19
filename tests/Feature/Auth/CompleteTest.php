@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Role;
+use App\Enums\RoleEnum;
+use App\Models\User;
 
 use function Pest\Laravel\actingAs;
 
@@ -14,8 +15,7 @@ test('user should have access to the completion page', function() {
 });
 
 test('user should not have access to the completion page', function() {
-    $user = createUser(true);
-    $user->assignRole(Role::findByName('client'));
+    $user = User::factory()->create(['role' => RoleEnum::getValue('CLIENT')]);
 
     actingAs($user)
     ->get('complete')

@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 namespace App\Actions\Auth;
+
+use App\Enums\RoleEnum;
 use App\Http\Requests\Auth\CompleteRequest;
 use App\Models\Company;
 use App\Models\Role;
@@ -21,11 +23,12 @@ class CompleteRegistration
 
 		if ((int)$request->input('type'))
 		{
-			$user->assignRole(Role::findByName('client'));
+			$user->role = RoleEnum::getValue('CLIENT');
+			$user->save();
 			return;
 		}
 
-		$user->assignRole(Role::findByName('admin'));
+		$user->role = RoleEnum::getValue('ADMIN');
 		$company = Company::create(['name' => $request->only('enterprise')]);
 		$user->company_id = $company->id;
 

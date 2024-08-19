@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\RoleEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,6 +16,7 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->foreignUlid('company_id')->nullable()->references('id')->on('companies')->nullOnDelete();
             $table->string('name');
+            $table->enum('role', RoleEnum::values())->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone')->unique()->nullable();

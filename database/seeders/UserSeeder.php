@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Enums\RoleEnum;
-use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -14,14 +13,13 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $role = Role::findByName(RoleEnum::getValue('SUPER_ADMIN'));
         $user = User::create([
             'name' => 'Aboubakary Cissé',
             'email' => 'aboubakarycisse410@gmail.com',
             'phone' => '66292862',
+            'role' => RoleEnum::getValue('ADMIN'),
             'password' => 'password',
         ]);
-        $user->assignRole($role);
         $user->markEmailAsVerified();
         $user->markPhoneAsVerified();
     }
