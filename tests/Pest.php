@@ -58,7 +58,8 @@ expect()->extend('toBeOne', function () {
 function createUser(bool $verified = false, bool $createdFromOauth = false) : User
 {
 	return User::factory()->create([
-		'name' => 'johndoe@gmail.com',
+		'name' => 'John Doe',
+		'email' => 'johndoe@gmail.com',
 		'email_verified_at' => $verified ? now() : null,
 		'password' => !$createdFromOauth ? 'password' : null,
 	]);

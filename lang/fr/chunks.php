@@ -16,6 +16,15 @@ return [
     'terms_and_conditions' => 'Termes & conditions',
     'dropdown' => [
         'empty' => 'Aucune valeur trouvée...'
+    ],
+
+    'sidebar' => [
+        'nav' => [
+            'home' => 'Accueil',
+            'tables' => 'Tables',
+            'dishes' => 'Plats',
+            'menus' => 'Menus',
+        ]
     ]
 ];
 

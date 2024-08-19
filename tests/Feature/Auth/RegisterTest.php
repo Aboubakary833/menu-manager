@@ -6,7 +6,8 @@ use function Pest\Laravel\{get, post};
 it('has register page', function () {
     
     get('register')
-    ->assertSuccessful();
+    ->assertSuccessful()
+    ->assertViewIs('pages.auth.register');
 });
 
 test('authenticated user cannot access the register page', function() {
@@ -27,5 +28,20 @@ test('user registration should succeed', function() {
             'email' => 'johndoe@gmail.com',
             'password' => '@dh2dl_4id',
         ]
-    );
+    )->assertRedirectToRoute('verification.notice');
+});
+
+test('user registration should fail', function() {
+    createUser();
+    
+    post(
+        'register',
+        [
+            'name' => 'Johnathan Leroix',
+            'email' => 'johndoe@gmail.com',
+            'password' => '@test4test_',
+        ]
+    )->assertStatus(302)
+    ->assertSessionHasInput('email')
+    ->assertSessionHasErrors('email');
 });

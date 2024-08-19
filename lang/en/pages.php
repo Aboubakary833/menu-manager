@@ -65,5 +65,9 @@ return [
             'user_type_label' => 'Who are you?(Click to select)',
             'submit' => 'Complete',
         ]
+    ],
+
+    'home' => [
+        'title' => 'Home',
     ]
 ];

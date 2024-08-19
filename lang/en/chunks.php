@@ -17,5 +17,14 @@ return [
     'dropdown' => [
         'empty' => 'Nothing found...'
     ],
+
+    'sidebar' => [
+        'nav' => [
+            'home' => 'Home',
+            'tables' => 'Tables',
+            'dishes' => 'Dishes',
+            'menus' => 'Menus',
+        ]
+    ]
 ];
 
